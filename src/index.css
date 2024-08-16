@@ -1,3 +1,13 @@
+@font-face {
+  font-family: "Lovelo";
+  src: url('./assets/fonts/LoveloBlack.otf');
+}
+
+@font-face {
+  font-family: "Otreque";
+  src: url('./assets/fonts/Standerd-Regular.otf');
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -11,33 +21,48 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --second-font: 'Lovelo';
+  --accent-color: #e6e6cf;
+  --accent-color-shadow: rgba(230, 230, 207, .5);
+  --font-color: white;
+  --bg-color: #070F2B;
 }
 
-@font-face {
-  font-family: "Lovelo";
-  src: url('./assets/fonts/LoveloBlack.otf');
+#root, body {
+  color: var(--font-color);
+}
+
+article {
+  margin: 0 auto;
+  max-width: 1280px;
+}
+
+* {
+  font-family: 'Inter';
 }
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--accent-color);
   text-decoration: inherit;
 }
+
 a:hover {
-  color: #535bf2;
+  color: var(--accent-color-shadow);
 }
 
-h1, h2, h3, h4, h5 {
-  font-family: "Lovelo";
+h1, h2, h3, h4, h5, .title-like {
+  font-family: var(--second-font) !important;
+  color: var(--accent-color) !important;
+  text-shadow: 3px 3px 5px var(--accent-color-shadow);
 }
 
 body {
   margin: 0;
-  /* display: flex;
-  place-items: center;
-  align-items: stretch; */
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--bg-color);
 }
 
 #root, section {
@@ -60,9 +85,11 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;

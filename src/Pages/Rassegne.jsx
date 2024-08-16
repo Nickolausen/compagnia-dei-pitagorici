@@ -1,10 +1,10 @@
 function Rassegne() 
 {
     return (
-        <section id="rassegne" className='d-flex justify-content-center align-items-center flex-column'>
+        <section id="rassegne" className='d-flex justify-content-center align-items-center flex-column pt-sm-5 pt-lg-0'>
             <h2 className="fs-1">Le ultime rassegne</h2>
 
-            <div id="carouselExampleCaptions" className="carousel slide">
+            <div id="carouselExampleCaptions" className="d-none d-sm-inline carousel slide">
             <div className="carousel-indicators">
                 <button
                 type="button"
