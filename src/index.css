@@ -29,6 +29,24 @@
   --bg-color: #070F2B;
 }
 
+.gradient-background {
+  background: linear-gradient(313deg,#070f2b,#0b0c59,#2b2c86,#89b8c5);
+  background-size: 240% 240%;
+  animation: gradient-animation 12s ease infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 #root, body {
   color: var(--font-color);
 }
@@ -62,7 +80,6 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: var(--bg-color);
 }
 
 #root, section {
