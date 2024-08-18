@@ -1,5 +1,19 @@
+import { useState, useEffect } from "react"
+import { gapi } from "gapi-script"
+
+const event_ids = [
+    "notte_pitagorica".toUpperCase(),
+    "itinerari_cosmici".toUpperCase()
+] 
+
 function Rassegne() 
 {
+    const [thumbnails, setThumbnails] = useState([])
+
+    const addElement = (newElement) => {
+        setThumbnails([...thumbnails, newElement])
+    }
+
     return (
         <section id="rassegne" className='d-flex justify-content-center align-items-center flex-column pt-sm-5 pt-lg-0'>
             <h2 className="fs-1">Le ultime rassegne</h2>
@@ -23,7 +37,7 @@ function Rassegne()
             </div>
             <div className="carousel-inner">
                 <div className="carousel-item active">
-                    <img src="src\assets\imgs\it_cosm1.JPG" className="d-block w-100" alt="..." />
+                    <img src="https://www.googleapis.com/drive/v2/files/1RhzZCAOJtc7xb8zhvGv9pKScEWaQ8t0z?key=AIzaSyCh-HLHmDeh6SaGrEtzVCeWFooviJN2T5o&alt=media&source=downloadUrl" className="d-block w-100" alt="..." />
                     <div className="carousel-caption d-none d-md-block">
                         <h5>ITINERARI COSMICI</h5>
                         <p>Rocca Malatestiana @ Cesena (FC), 29 Luglio 2024 - <span className="fst-italic">Scopri di più</span></p>

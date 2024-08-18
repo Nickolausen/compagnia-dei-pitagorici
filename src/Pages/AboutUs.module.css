@@ -1,5 +1,6 @@
 .row {
-    background-color: #1B1A55;
+    background-color: var(--secondary-bg-color);
+    backdrop-filter: blur(10px)
 }
 
 .carousel_cell {
