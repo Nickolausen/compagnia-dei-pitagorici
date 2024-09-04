@@ -3,6 +3,11 @@
     backdrop-filter: blur(10px)
 }
 
+.icon {
+    max-width: 250px;
+    min-width: 200px;
+}
+
 .carousel_cell {
     background-color: #535C91;
 }

@@ -13,29 +13,29 @@ function Rassegna(props) {
 
     const API_KEY = "AIzaSyCh-HLHmDeh6SaGrEtzVCeWFooviJN2T5o"
     useEffect(() => {
-        let download_id = undefined
-        fetch(`https://www.googleapis.com/drive/v3/files?q='1i8LISpY9RoV7CL84AqPtjCcEv728nXhP'%20in%20parents%20and%20mimeType%20%3D%20'application%2Fzip'&key=${API_KEY}`)
-            .then(res => res.json())
-            .then((data) => {
-                download_id = data.files[0].id
-            })
+        // let download_id = undefined
+        // fetch(`https://www.googleapis.com/drive/v3/files?q='1i8LISpY9RoV7CL84AqPtjCcEv728nXhP'%20in%20parents%20and%20mimeType%20%3D%20'application%2Fzip'&key=${API_KEY}`)
+        //     .then(res => res.json())
+        //     .then((data) => {
+        //         download_id = data.files[0].id
+        //     })
 
-        if (download_id === undefined) throw new Error("Could not download the photo's archive!")
+        // if (download_id === undefined) throw new Error("Could not download the photo's archive!")
         
-        fetch(`https://www.googleapis.com/drive/v3/files/${download_id}?key=${API_KEY}&alt=media`)
-            .then(res => res.blob())
-            .then(archive => {
-                let zip = new JSZip()
-                JSZip.loadAsync(archive).then(zip => {
-                    object.keys(zip.files).forEach(function(filename){
-                        const content = zip.files[filename];
-                        let img = new Image()
-                        img.src = URL.createObjectURL(content)
+        // fetch(`https://www.googleapis.com/drive/v3/files/${download_id}?key=${API_KEY}&alt=media`)
+        //     .then(res => res.blob())
+        //     .then(archive => {
+        //         let zip = new JSZip()
+        //         JSZip.loadAsync(archive).then(zip => {
+        //             object.keys(zip.files).forEach(function(filename){
+        //                 const content = zip.files[filename];
+        //                 let img = new Image()
+        //                 img.src = URL.createObjectURL(content)
 
-                        addPhoto(img)
-                    });
-                })
-            })
+        //                 addPhoto(img)
+        //             });
+        //         })
+        //     })
     }, [])
 
     let displayPhotos = []
@@ -80,7 +80,7 @@ function Rassegna(props) {
 
         <h2 className='mt-5'>Galleria</h2>
         <div className="container-fluid">
-            <RowsPhotoAlbum photos={displayPhotos}></RowsPhotoAlbum>
+            {/* <RowsPhotoAlbum photos={displayPhotos}></RowsPhotoAlbum> */}
         </div>
 
         <p>Un evento in collaborazione con: </p>

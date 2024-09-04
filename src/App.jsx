@@ -14,16 +14,19 @@ function App() {
       </article>
         <AboutUs></AboutUs>
       <article>
+        <div className="d-flex flex-column justify-content-center align-items-center">
+          <hr className='w-100'/>
+        </div>
         <Rassegne></Rassegne>
       </article>
 
-      <Rassegna
+      {/* <Rassegna
         title="Itinerari Cosmici"
         location="Rocca Malatestiana @ Cesena (FC)"
         data="29 Luglio 2024"
         description="Dalla visione di Pitagora al segreto di Copernico, dall’ossessione di Schwarzschild all’errore di Einstein, fino agli orizzonti cosmologici e al dilemma di Archita."
         folder_name="itinerari_cosmici"
-        ></Rassegna>
+        ></Rassegna> */}
 
       <Footer></Footer>
     </>
