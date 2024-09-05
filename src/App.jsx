@@ -26,7 +26,7 @@ function App() {
     }, []);
     
   return (
-    <Router>
+    <Router basename='/compagnia-dei-pitagorici/'>
         <Routes>
           <Route index path='/' element={<>
             <article>
