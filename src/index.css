@@ -30,9 +30,9 @@
 }
 
 /* .gradient-background {
-  background: linear-gradient(313deg,#070f2b,#0b0c59,#2b2c86,#89b8c5);
-  background-size: 240% 240%;
-  animation: gradient-animation 12s ease infinite;
+  background: linear-gradient(254deg,#030817,#281650,#371790);
+  background-size: 180% 180%;
+  animation: gradient-animation 6s ease infinite;
 } */
 
 @keyframes gradient-animation {

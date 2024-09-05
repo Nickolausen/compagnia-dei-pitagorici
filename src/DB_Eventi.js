@@ -18,7 +18,8 @@ function get_DB_Eventi()
             thumbnail_src: "",
             volantino_src: "",
             yt_id: "nVibNQGm7Vg",
-            yt_thumbnail: ""
+            yt_thumbnail: "",
+            flickr_album_id: "72177720320089939"
         },
         {
             event_id: -1,
@@ -30,7 +31,8 @@ function get_DB_Eventi()
             thumbnail_src: "",
             volantino_src: "",
             yt_id: "ua4eGl-60rE",
-            yt_thumbnail: ""
+            yt_thumbnail: "",
+            flickr_album_id: "72177720320073362"
         }
     ]
 

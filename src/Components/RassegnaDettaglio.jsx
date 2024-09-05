@@ -1,20 +1,54 @@
 import styles from './RassegnaDettaglio.module.css'
-import { RowsPhotoAlbum } from "react-photo-album";
+import { RowsPhotoAlbum } from 'react-photo-album';
 import "react-photo-album/rows.css";
 import { useState, useEffect } from 'react';
 import get_DB_Eventi from '../DB_Eventi';
 import { useParams } from 'react-router-dom';
 import Footer from './Footer';
 import HomeLink from './HomeLink';
+import config from '../config.json'
 
 function RassegnaDettaglio() {     
-    const [rassegna, setRassegna] = useState({})
+    const [ rassegna, setRassegna ] = useState({})
     const { event_url } = useParams()
 
+    const [ photos, setPhotos ] = useState([])
+    
     useEffect(() => 
         {
             let fetchedRassegna = get_DB_Eventi().find((el) => el.event_url === event_url)
             setRassegna(fetchedRassegna)
+            
+            const requestURL = `https://www.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=${config.API_KEY}&photoset_id=${fetchedRassegna.flickr_album_id}&user_id=${config.USER_ID}&format=json&nojsoncallback=1`
+            let fetchedPhotos = [];
+
+            fetch(requestURL)
+                .then((res) => res.json())
+                .then(data => 
+                    {
+                        for (const pic of data.photoset.photo) 
+                        {
+                            let imgElem = new Image()
+                            imgElem.src = `https://live.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}_b.jpg`
+                            imgElem.className = "img-fluid"
+                            
+                            fetchedPhotos.push(imgElem)
+                        }
+                        
+                        let rawPhotos = []
+                        fetchedPhotos.forEach(photo => 
+                            {
+                                rawPhotos.push(
+                                    {
+                                        src: photo.src,
+                                        width: photo.width,
+                                        height: photo.height,
+                                    })
+                            })
+            
+                        setPhotos(rawPhotos)
+                    })
+
         }, [])
 
     return <>
@@ -52,7 +86,10 @@ function RassegnaDettaglio() {
             <div className="d-flex w-100 justify-content-center align-items-center flex-column">
                 <hr className='w-100'/>
             </div>
-            <h2 className='pt-5 fs-1'>Galleria</h2>
+            <h2 className='pt-5 fs-1 pb-3'>Galleria</h2>
+            <div className="px-5">
+                <RowsPhotoAlbum photos={photos} targetRowHeight={350}></RowsPhotoAlbum>
+            </div>
         </div>
         <Footer></Footer>
     </>

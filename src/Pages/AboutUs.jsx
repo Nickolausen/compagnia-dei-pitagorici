@@ -1,5 +1,6 @@
 import styles from './AboutUs.module.css'
-import { RowsPhotoAlbum } from "react-photo-album";
+import { RowsPhotoAlbum } from 'react-photo-album'
+import "react-photo-album/rows.css";
 
 function AboutUs() 
 {
