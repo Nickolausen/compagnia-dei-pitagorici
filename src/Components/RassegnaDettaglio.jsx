@@ -70,7 +70,7 @@ function RassegnaDettaglio() {
                             <a href={'https://www.youtube.com/watch?v=' + rassegna.yt_id} target='_blank'>
                                 <img className='img-fluid rounded' src={rassegna.yt_thumbnail}>
                                 </img>
-                                <img className={styles.yt_logo + ' position-absolute start-50 top-50 translate-middle exclude'} src='src/assets/imgs/YT_logo.png'></img>
+                                <img className={styles.yt_logo + ' position-absolute start-50 top-50 translate-middle exclude'} src={import.meta.env.BASE_URL + '/imgs/YT_logo.png'}></img>
                             </a>
                         </div>
                         <p className='pt-4 fs-5'>Clicca sull'immagine per visionarlo su YouTube!</p>

@@ -4,27 +4,6 @@ import "react-photo-album/rows.css";
 
 function AboutUs() 
 {
-    const imgElems = []
-    const displayPhotos= []
-
-    for (const i of [0,1,2,3,4])
-    {
-        let img = new Image()
-        img.src = import.meta.env.BASE_URL + "\\imgs\\chi_siamo" + i +".JPG"
-
-        imgElems.push(img)
-    }
-
-    for (const img of imgElems) 
-    {
-        displayPhotos.push(
-        {
-            src: img.src,
-            width: img.width,
-            height: img.height
-        })
-    }
-
     return (
         <section id="chi-siamo" className='container'>
             <div className="row">
@@ -50,7 +29,27 @@ function AboutUs()
                     </div>
                 </div>
                 <div className="col-12 pt-5">
-                    <RowsPhotoAlbum photos={displayPhotos} targetRowHeight={350}></RowsPhotoAlbum>
+                    <div className="container-fluid px-0">
+                        <div className="row g-3">
+                            <div className="col-md-6 col-12">
+                                <img className="w-100" src={import.meta.env.BASE_URL + '\\imgs\\chi_siamo0.JPG'}></img>
+                            </div>
+                            <div className="col-md-6 col-12">
+                                <img className="w-100" src={import.meta.env.BASE_URL + '\\imgs\\chi_siamo1.JPG'}></img>
+                            </div>
+                        </div>
+                        <div className="row g-3 pt-3">
+                            <div className="col-12 col-md-12 col-lg-4">
+                                <img className="w-100" src={import.meta.env.BASE_URL + '\\imgs\\chi_siamo2.JPG'}></img>
+                            </div>
+                            <div className="col-12 col-md-6 col-lg-4">
+                                <img className="w-100" src={import.meta.env.BASE_URL + '\\imgs\\chi_siamo3.JPG'}></img>
+                            </div>
+                            <div className="col-12 col-md-6 col-lg-4">
+                                <img className="w-100" src={import.meta.env.BASE_URL + '\\imgs\\chi_siamo4.JPG'}></img>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

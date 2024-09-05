@@ -26,7 +26,7 @@ function App() {
     }, []);
     
   return (
-    <Router basename='/compagnia-dei-pitagorici/'>
+    <Router basename={import.meta.env.BASE_URL}>
         <Routes>
           <Route index path='/' element={<>
             <article>
