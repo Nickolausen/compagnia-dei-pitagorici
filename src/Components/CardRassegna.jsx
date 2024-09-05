@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styles from './CardRassegna.module.css'
 
 function CardRassegna(props) 
@@ -7,7 +8,8 @@ function CardRassegna(props)
         <div className={styles.overlay + " card-body position-absolute bottom-0 start-50 translate-middle w-100 z-2"}>
             <h5 className="card-title">{props.title}</h5>
             <p className="card-text text-white">
-                {props.description} - <span className='fst-italic'>Scopri di più</span>
+                {props.description} - 
+                <Link to={`${props.url}`}> Scopri di più</Link>
             </p>
         </div>
   </div>

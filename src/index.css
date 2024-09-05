@@ -52,7 +52,11 @@
   background-color: var(--bg-color);
 }
 
-article {
+#root {
+  text-align: center;
+}
+
+article, section {
   margin: 0 auto;
   max-width: 1280px;
 }
@@ -113,7 +117,7 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-img:not(.exclude):hover {
+img:not(.exclude):hover, svg:hover {
   filter: brightness(.75);
 }
 
