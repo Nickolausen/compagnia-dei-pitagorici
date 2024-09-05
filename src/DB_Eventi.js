@@ -1,8 +1,8 @@
 function get_DB_Eventi()
 {
-    const thumbnails_dir = "src\\assets\\imgs\\evt_thumbnails\\"
-    const volantini_dir = "src\\assets\\imgs\\volantini\\"
-    const yt_thumbnails = "src\\assets\\imgs\\yt_thumbnails\\"
+    const thumbnails_dir = import.meta.env.BASE_URL + "\\imgs\\evt_thumbnails\\"
+    const volantini_dir =  import.meta.env.BASE_URL + "\\imgs\\volantini\\"
+    const yt_thumbnails = import.meta.env.BASE_URL + "\\imgs\\yt_thumbnails\\"
 
     /*
         Array di oggetti contenenti tutte le informazioni di tutti gli eventi

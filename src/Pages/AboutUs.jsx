@@ -10,7 +10,7 @@ function AboutUs()
     for (const i of [0,1,2,3,4])
     {
         let img = new Image()
-        img.src = "src\\assets\\imgs\\chi_siamo" + i +".JPG"
+        img.src = import.meta.env.BASE_URL + "\\imgs\\chi_siamo" + i +".JPG"
 
         imgElems.push(img)
     }
@@ -32,7 +32,7 @@ function AboutUs()
                     <div className="ps-0 px-lg-5 mx-3 mx-lg-0">
                         <div className='d-flex flex-column justify-content-center align-items-center px-0'>
                             {/* <img className="w-25 py-3" src="src\assets\imgs\tetraktys_nowriting.png"></img> */}
-                            <img className={styles.icon + " w-25 pt-3 exclude"} src="src\assets\imgs\white_LOGO_PASCAL.png"></img>
+                            <img className={styles.icon + " w-25 pt-3 exclude"} src={import.meta.env.BASE_URL + "\\imgs\\white_LOGO_PASCAL.png"}></img>
                             <hr className='w-100'/>
                         </div>
                         <h2 className='fs-1 py-3'>Una "congregazione" Made in Pascal</h2>
