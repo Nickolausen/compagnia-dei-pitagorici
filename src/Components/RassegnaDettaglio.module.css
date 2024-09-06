@@ -9,7 +9,22 @@
 @media screen and (width < 1200px) 
 {
     .main_title {
-        font-size: 3.75rem;
+        font-size: 3.50rem;
+    }
+}
+
+.spinner {
+    width: 128px;
+    transform-origin: center 45px;
+    animation: spinning 2s linear infinite;
+}
+
+@keyframes spinning {
+    from{
+        -webkit-transform: rotate(0deg);
+    }
+    to{
+        -webkit-transform: rotate(360deg);
     }
 }
 

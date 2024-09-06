@@ -20,7 +20,8 @@ function RassegnaDettaglio() {
     const { event_url } = useParams()
 
     const [ photos, setPhotos ] = useState([])
-    
+    const [ allPhotosLoaded, setAllPhotosLoaded ] = useState(false)
+
     useEffect(() => 
         {
             let fetchedRassegna = get_DB_Eventi().find((el) => el.event_url === event_url)
@@ -45,8 +46,8 @@ function RassegnaDettaglio() {
                         }
 
                         setPhotos(fetchedPhotos)
+                        setAllPhotosLoaded(true)
                     })
-
         }, [])
 
     return <>
@@ -77,29 +78,17 @@ function RassegnaDettaglio() {
                 </div>
             </div>
         </div>
-
-        <article className='pt-3 mt-4'>
-            
-        </article>
-        <div className="d-flex w-100 justify-content-center align-items-center flex-column">
-            <hr className='w-100'/>
-        </div>
-        <div className="container-fluid pt-4">
-             <div className="container">
-                <div className="row">
-                    <div className="col-12 col-sm-8">
-                    </div>
-                    <div className="pt-4 pt-sm-0 col-12 col-sm-4">
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
         <div>
-            
             <h2 className='pt-5 fs-1 pb-3'>Galleria</h2>
-            <div className="px-5">
-                <RowsPhotoAlbum photos={photos} targetRowHeight={350}></RowsPhotoAlbum>
+            <div className="px-5"> 
+                {
+                    (!allPhotosLoaded) ? 
+                        <>
+                            <img className={styles.spinner + ' exclude'} src={import.meta.env.BASE_URL + '/tetraktys_nowriting.png'}></img>
+                            <p className='pt-4'>Caricando tutte le foto...</p>
+                        </> : 
+                        <RowsPhotoAlbum photos={photos} targetRowHeight={350}></RowsPhotoAlbum>
+                }
             </div>
         </div>
         <Footer></Footer>
