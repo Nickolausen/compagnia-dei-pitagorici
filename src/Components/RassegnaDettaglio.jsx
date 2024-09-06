@@ -8,6 +8,13 @@ import Footer from './Footer';
 import HomeLink from './HomeLink';
 import config from '../config.json'
 
+const getMeta = (url, cb) => {
+    const img = new Image();
+    img.onload = () => cb(null, img);
+    img.onerror = (err) => cb(err);
+    img.src = url;
+}
+
 function RassegnaDettaglio() {     
     const [ rassegna, setRassegna ] = useState({})
     const { event_url } = useParams()
@@ -20,43 +27,59 @@ function RassegnaDettaglio() {
             setRassegna(fetchedRassegna)
             
             const requestURL = `https://www.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=${config.API_KEY}&photoset_id=${fetchedRassegna.flickr_album_id}&user_id=${config.USER_ID}&format=json&nojsoncallback=1`
-            let fetchedPhotos = [];
-
+            
             fetch(requestURL)
-                .then((res) => res.json())
-                .then(data => 
-                    {
+            .then((res) => res.json())
+            .then(data => 
+                {
+                        let fetchedPhotos = [];
                         for (const pic of data.photoset.photo) 
                         {
-                            let imgElem = new Image()
-                            imgElem.src = `https://live.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}_b.jpg`
-                            imgElem.className = "img-fluid"
-                            
-                            fetchedPhotos.push(imgElem)
+                            getMeta(`https://live.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}_b.jpg`, (err, img) => {
+                                fetchedPhotos.push({
+                                    src: img.src,
+                                    width: img.naturalWidth,
+                                    height: img.naturalHeight
+                                })
+                            });
                         }
-                        
-                        let rawPhotos = []
-                        fetchedPhotos.forEach(photo => 
-                            {
-                                rawPhotos.push(
-                                    {
-                                        src: photo.src,
-                                        width: photo.width,
-                                        height: photo.height,
-                                    })
-                            })
-            
-                        setPhotos(rawPhotos)
+
+                        setPhotos(fetchedPhotos)
                     })
 
         }, [])
 
     return <>
         <HomeLink></HomeLink>
+        <div className="container pt-5 pt-xl-0">
+            <div className="row gy-5">
+                <div className="col-12 col-xl-5 text-xl-start d-flex flex-column justify-content-center">
+                    <p className='fs-5'>{rassegna.location},<br className='d-inline d-md-none'></br> {rassegna.date}</p>
+                    <h1 className={styles.main_title}>{rassegna.event_name}</h1>
+                    <div className="d-flex w-100 justify-content-center align-items-center align-items-xl-start flex-column">
+                        <hr className='w-100'/>
+                    </div>
+                    <p className="fs-2 px-2 px-md-0 fst-italic">{rassegna.description}</p>
+                </div>
+                <div className="col-12 col-xl-7 d-flex justify-content-center align-items-center">
+                    <img className="shadow-lg rounded w-75" src={rassegna.volantino_src}/>
+                    </div>
+                <div className="col-12 col-xl-12 pt-5">
+                    <h3>Video Live</h3>
+                    <div className="ratio ratio-16x9">
+                        <a href={'https://www.youtube.com/watch?v=' + rassegna.yt_id} target='_blank'>
+                            <img className='img-fluid rounded' src={rassegna.yt_thumbnail}>
+                            </img>
+                            <img className={styles.yt_logo + ' position-absolute start-50 top-50 translate-middle exclude'} src={import.meta.env.BASE_URL + '/imgs/YT_logo.png'}></img>
+                        </a>
+                    </div>
+                    <p className='pt-4 fs-5'>Clicca sull'immagine per visionarlo su YouTube!</p>
+                </div>
+            </div>
+        </div>
+
         <article className='pt-3 mt-4'>
-            <p className='fs-5'>{rassegna.location},<br className='d-inline d-md-none'></br> {rassegna.date}</p>
-            <h1>{rassegna.event_name}</h1>
-            <p className="fs-2 px-2 px-md-0 fst-italic">{rassegna.description}</p>
+            
         </article>
         <div className="d-flex w-100 justify-content-center align-items-center flex-column">
             <hr className='w-100'/>
@@ -65,27 +88,15 @@ function RassegnaDettaglio() {
              <div className="container">
                 <div className="row">
                     <div className="col-12 col-sm-8">
-                        <h3>Video Live</h3>
-                        <div className="ratio ratio-16x9">
-                            <a href={'https://www.youtube.com/watch?v=' + rassegna.yt_id} target='_blank'>
-                                <img className='img-fluid rounded' src={rassegna.yt_thumbnail}>
-                                </img>
-                                <img className={styles.yt_logo + ' position-absolute start-50 top-50 translate-middle exclude'} src={import.meta.env.BASE_URL + '/imgs/YT_logo.png'}></img>
-                            </a>
-                        </div>
-                        <p className='pt-4 fs-5'>Clicca sull'immagine per visionarlo su YouTube!</p>
                     </div>
                     <div className="pt-4 pt-sm-0 col-12 col-sm-4">
-                        <h3>Volantino</h3>
-                        <img className="shadow-lg rounded img-fluid" src={rassegna.volantino_src}/>
+                        
                     </div>
                 </div>
             </div>
         </div>
         <div>
-            <div className="d-flex w-100 justify-content-center align-items-center flex-column">
-                <hr className='w-100'/>
-            </div>
+            
             <h2 className='pt-5 fs-1 pb-3'>Galleria</h2>
             <div className="px-5">
                 <RowsPhotoAlbum photos={photos} targetRowHeight={350}></RowsPhotoAlbum>
