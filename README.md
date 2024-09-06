@@ -5,8 +5,8 @@ Questo sito web intende raccogliere tutti i contenuti relativi alle rassegne cul
 ### Tecnologie utilizzate
 La piattaforma non prevede nulla di back-end.
 Per quanto riguarda il **front-end**:
-- **ReactJS**
-- **Javascript**
+- **ReactJS** + **Javascript**
+- **Bootstrap**
 - Development server: **Vite**
 
 Tutte le foto che **non** fanno parte della sezione 'Galleria' presente sulle pagine dedicate alla descrizione di una singola rassegna sono salvate in locale. Per le immagini della galleria si fa utilizzo di [Flickr](https://www.flickr.com/), che mette a disposizione la sua API - [FlickrAPI](https://www.flickr.com/services/api/).
