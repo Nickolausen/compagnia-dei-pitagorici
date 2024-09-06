@@ -6,6 +6,13 @@
     font-size: 5rem;
 }
 
+@media screen and (width < 1200px) 
+{
+    .main_title {
+        font-size: 3.75rem;
+    }
+}
+
 .yt_logo {
     max-width: 100px;
 }
