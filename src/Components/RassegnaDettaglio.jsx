@@ -9,6 +9,7 @@ import HomeLink from './HomeLink';
 import LoadingSpinner from './LoadingSpinner';
 import DelayedGallery from './DelayedGallery';
 import config from '../config.json'
+import NotFound from '../Pages/NotFound';
 
 const getMeta = (url, cb) => {
     const img = new Image();
@@ -21,6 +22,7 @@ function RassegnaDettaglio() {
     const [ rassegna, setRassegna ] = useState({})
     const [ photos, setPhotos ] = useState([])
     
+    
     /* Boolean flag to decide wether to display or not the photo gallery - turns 'True' when all the photos have been fetched */
     const [ allPhotosLoaded, setAllPhotosLoaded ] = useState(false)
     
@@ -32,7 +34,7 @@ function RassegnaDettaglio() {
             fetchedRassegna = get_DB_Eventi().find((el) => el.event_url === event_url)
             
             if (fetchedRassegna === undefined)
-                return <></>
+                return <NotFound/>
             setRassegna(fetchedRassegna)
             
             const requestURL = `https://www.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=${config.API_KEY}&photoset_id=${fetchedRassegna.flickr_album_id}&user_id=${config.USER_ID}&format=json&nojsoncallback=1`
@@ -58,16 +60,17 @@ function RassegnaDettaglio() {
                     })
             .catch(err => 
                 {
-                    
+                    console.log(err)
                 })
         }, [])
 
     return <>
+        <div id='anchor'></div>
         <HomeLink classNames="ps-3 pt-3"></HomeLink>
         <div className="container pt-5 pt-xl-0">
             <div className="row gy-5">
                 <div className="col-12 col-xl-5 d-flex flex-column justify-content-center align-items-center align-items-xl-start text-xl-start">
-                    <p className={styles.location_info + ' fs-6 text-center badge text-bg-primary'}>{rassegna.location},<br className='d-inline d-md-none'></br> {rassegna.date}</p>
+                    <p className={styles.location_info + ' fs-6 text-center badge text-bg-primary lh-base'}>{rassegna.location},<br className='d-inline d-md-none'></br> {rassegna.date}</p>
                     <h1 className={styles.main_title}>{rassegna.event_name}</h1>
                     <div className="d-flex w-100 justify-content-center align-items-center align-items-xl-start flex-column">
                         <hr className='w-100'/>

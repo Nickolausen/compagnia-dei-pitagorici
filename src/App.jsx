@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import get_DB_Eventi from './DB_Eventi'
 import { useState, useEffect } from 'react'
 import NotFound from './Pages/NotFound'
-
+import { Link } from 'react-router-dom'
 function App() {
   
   const [cards, setCards] = useState([]);
@@ -15,12 +15,17 @@ function App() {
     useEffect(() => {
         const fetchedCards = get_DB_Eventi().map(evt => {
             return (<div key={evt.event_id} className="pt-3 col-12">
-                <CardRassegna
-                    thumbnail={evt.thumbnail_src}
-                    title={evt.event_name}
-                    description={`${evt.location}, ${evt.date}`}
-                    url={evt.event_url}>
-                </CardRassegna>
+                <Link to={{
+                  pathname: evt.event_url,
+                  hash: '#anchor'
+                }}>
+                  <CardRassegna
+                      thumbnail={evt.thumbnail_src}
+                      title={evt.event_name}
+                      description={`${evt.location}, ${evt.date}`}
+                      url={evt.event_url}>
+                  </CardRassegna>
+                </Link>
             </div>)
         });
         setCards(fetchedCards); // Aggiorniamo lo stato una sola volta

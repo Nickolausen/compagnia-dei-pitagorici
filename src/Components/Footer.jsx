@@ -20,7 +20,7 @@ function Footer(props)
             <div className="col-12 col-lg-4">
                 <img src={import.meta.env.BASE_URL + '/tetraktys_nowriting.png'} className='w-25 exclude'></img>
                 <h3 className='pt-3'>Compagnia dei Pitagorici</h3>
-                <p>Errare humanum est, perseverare... pytagoricum!</p>
+                <p>Errare humanum est, perseverare... <span className='fw-bold'>pytagoricum</span>!</p>
             </div>
             <hr className='d-lg-none my-4 opacity-50 px-5'/>
             <div className="col-12 col-lg-4">
