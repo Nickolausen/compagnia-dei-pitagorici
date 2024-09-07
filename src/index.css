@@ -29,6 +29,10 @@
   --secondary-bg-color: #1B1A55;
 }
 
+[class*="primary"], ::selection {
+  background-color: #213547 !important;
+}
+
 /* .gradient-background {
   background: linear-gradient(254deg,#030817,#281650,#371790);
   background-size: 180% 180%;

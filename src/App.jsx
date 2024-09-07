@@ -6,6 +6,7 @@ import RassegnaDettaglio from './Components/RassegnaDettaglio'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import get_DB_Eventi from './DB_Eventi'
 import { useState, useEffect } from 'react'
+import NotFound from './Pages/NotFound'
 
 function App() {
   
@@ -50,6 +51,7 @@ function App() {
             <Footer/>
           </>}></Route>
           <Route path="/:event_url" element={<RassegnaDettaglio></RassegnaDettaglio>}></Route>
+          <Route path='*' element={<NotFound/>}/>
         </Routes>        
     </Router>
   )

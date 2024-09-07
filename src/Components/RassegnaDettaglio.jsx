@@ -6,6 +6,8 @@ import get_DB_Eventi from '../DB_Eventi';
 import { useParams } from 'react-router-dom';
 import Footer from './Footer';
 import HomeLink from './HomeLink';
+import LoadingSpinner from './LoadingSpinner';
+import DelayedGallery from './DelayedGallery';
 import config from '../config.json'
 
 const getMeta = (url, cb) => {
@@ -17,14 +19,20 @@ const getMeta = (url, cb) => {
 
 function RassegnaDettaglio() {     
     const [ rassegna, setRassegna ] = useState({})
-    const { event_url } = useParams()
-
     const [ photos, setPhotos ] = useState([])
+    
+    /* Boolean flag to decide wether to display or not the photo gallery - turns 'True' when all the photos have been fetched */
     const [ allPhotosLoaded, setAllPhotosLoaded ] = useState(false)
+    
+    const { event_url } = useParams()
 
     useEffect(() => 
         {
-            let fetchedRassegna = get_DB_Eventi().find((el) => el.event_url === event_url)
+            let fetchedRassegna = undefined
+            fetchedRassegna = get_DB_Eventi().find((el) => el.event_url === event_url)
+            
+            if (fetchedRassegna === undefined)
+                return <></>
             setRassegna(fetchedRassegna)
             
             const requestURL = `https://www.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=${config.API_KEY}&photoset_id=${fetchedRassegna.flickr_album_id}&user_id=${config.USER_ID}&format=json&nojsoncallback=1`
@@ -48,14 +56,18 @@ function RassegnaDettaglio() {
                         setPhotos(fetchedPhotos)
                         setAllPhotosLoaded(true)
                     })
+            .catch(err => 
+                {
+                    
+                })
         }, [])
 
     return <>
-        <HomeLink></HomeLink>
+        <HomeLink classNames="ps-3 pt-3"></HomeLink>
         <div className="container pt-5 pt-xl-0">
             <div className="row gy-5">
-                <div className="col-12 col-xl-5 text-xl-start d-flex flex-column justify-content-center">
-                    <p className='fs-5'>{rassegna.location},<br className='d-inline d-md-none'></br> {rassegna.date}</p>
+                <div className="col-12 col-xl-5 d-flex flex-column justify-content-center align-items-center align-items-xl-start text-xl-start">
+                    <p className={styles.location_info + ' fs-6 text-center badge text-bg-primary'}>{rassegna.location},<br className='d-inline d-md-none'></br> {rassegna.date}</p>
                     <h1 className={styles.main_title}>{rassegna.event_name}</h1>
                     <div className="d-flex w-100 justify-content-center align-items-center align-items-xl-start flex-column">
                         <hr className='w-100'/>
@@ -83,11 +95,8 @@ function RassegnaDettaglio() {
             <div className="px-5"> 
                 {
                     (!allPhotosLoaded) ? 
-                        <>
-                            <img className={styles.spinner + ' exclude'} src={import.meta.env.BASE_URL + '/tetraktys_nowriting.png'}></img>
-                            <p className='pt-4'>Caricando tutte le foto...</p>
-                        </> : 
-                        <RowsPhotoAlbum photos={photos} targetRowHeight={350}></RowsPhotoAlbum>
+                        <LoadingSpinner loadingMessage="Chiedendo a Pitagora tutte le nostre foto..."></LoadingSpinner> : 
+                        <DelayedGallery photos={photos} targetRowHeight={350} timeout={3500}></DelayedGallery>
                 }
             </div>
         </div>
