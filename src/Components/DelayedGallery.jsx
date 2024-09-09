@@ -65,7 +65,7 @@ function DelayedGallery(props) {
                     close={() => setIndex(-1)}
                     plugins={[Counter, Fullscreen, Zoom, Thumbnails]}
                     animation={{ zoom: animationDuration }}
-                    counter={{ container: { style: { top: 0, bottom: "unset" } } }}
+                    counter={{ container: { className: "badge text-bg-primary", style: { top: 0, bottom: "unset" } } }}
                     carousel={{ preload }}
                     zoom={{
                         maxZoomPixelRatio,
