@@ -22,7 +22,6 @@ function RassegnaDettaglio() {
     const [ rassegna, setRassegna ] = useState({})
     const [ photos, setPhotos ] = useState([])
     
-    
     /* Boolean flag to decide wether to display or not the photo gallery - turns 'True' when all the photos have been fetched */
     const [ allPhotosLoaded, setAllPhotosLoaded ] = useState(false)
     
