@@ -1,4 +1,3 @@
-import Footer from '../Components/Footer'
 import HomeLink from '../Components/HomeLink'
 import styles from './NotFound.module.css'
 

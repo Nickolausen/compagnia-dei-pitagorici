@@ -26,11 +26,11 @@
   --accent-color-shadow: rgba(230, 230, 207, .5);
   --font-color: white;
   --bg-color: #030817;
-  --secondary-bg-color: #1B1A55;
+  --secondary-bg-color: #213547;
 }
 
 [class*="primary"], ::selection {
-  background-color: #213547 !important;
+  background-color: var(--secondary-bg-color) !important;
 }
 
 /* .gradient-background {

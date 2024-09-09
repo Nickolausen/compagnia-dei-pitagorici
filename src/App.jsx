@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import get_DB_Eventi from './DB_Eventi'
 import { useState, useEffect } from 'react'
 import NotFound from './Pages/NotFound'
-import { Link } from 'react-router-dom'
+import { HashLink } from 'react-router-hash-link'
 function App() {
   
   const [cards, setCards] = useState([]);
@@ -15,17 +15,14 @@ function App() {
     useEffect(() => {
         const fetchedCards = get_DB_Eventi().map(evt => {
             return (<div key={evt.event_id} className="pt-3 col-12">
-                <Link to={{
-                  pathname: evt.event_url,
-                  hash: '#anchor'
-                }}>
+                <HashLink to={evt.event_url + "#rassegna"}>
                   <CardRassegna
                       thumbnail={evt.thumbnail_src}
                       title={evt.event_name}
                       description={`${evt.location}, ${evt.date}`}
                       url={evt.event_url}>
                   </CardRassegna>
-                </Link>
+                </HashLink>
             </div>)
         });
         setCards(fetchedCards); // Aggiorniamo lo stato una sola volta
@@ -35,7 +32,7 @@ function App() {
     <Router basename={import.meta.env.BASE_URL}>
         <Routes>
           <Route index path='/' element={<>
-            <article>
+            <article id='home'>
               <Home/>
             </article>
 

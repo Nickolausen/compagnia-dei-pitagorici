@@ -5,14 +5,6 @@ function Footer(props)
 {
     return <footer className={styles.cst_footer + " " + props.classNames + " container-fluid p-5 mt-5"}>
         <div className="row">
-            <div className="col-12">
-                <span>Handmade with &lt;3 by 
-                    <a className='text-decoration-none' href='https://github.com/Nickolausen'> Nicholas Magi</a> & 
-                    <a className='text-decoration-none' href='https://github.com/lspita'> Ludovico Maria Spitaleri </a>  
-                </span>
-            </div>
-        </div>
-        <div className="row pt-5">
             <div className="col-12 col-lg-4 d-flex flex-column justify-content-center align-items-center">
                 <HomeLink></HomeLink>
             </div>
@@ -29,7 +21,14 @@ function Footer(props)
                 </a>
             </div>
         </div>
-        
+        <div className="row pt-5">
+            <div className="col-12">
+                <span className={styles.credits}>Crafted with <i class="fa fa-heart" style={{ color: "red"}}></i> by 
+                    <a className='text-decoration-none' href='https://github.com/Nickolausen'> Nicholas Magi</a> & 
+                    <a className='text-decoration-none' href='https://github.com/lspita'> Ludovico Maria Spitaleri </a>  
+                </span>
+            </div>
+        </div>
     </footer>
 }
 

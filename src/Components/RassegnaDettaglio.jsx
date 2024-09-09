@@ -44,6 +44,14 @@ function RassegnaDettaglio() {
             .then(data => 
                 {
                         let fetchedPhotos = [];
+                        getMeta(fetchedRassegna.volantino_src, (err, img) => {
+                            fetchedPhotos.push({
+                                src: img.src,
+                                width: img.naturalWidth,
+                                height: img.naturalHeight
+                            })
+                        })
+
                         for (const pic of data.photoset.photo) 
                         {
                             getMeta(`https://live.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}_b.jpg`, (err, img) => {
@@ -65,20 +73,20 @@ function RassegnaDettaglio() {
         }, [])
 
     return <>
-        <div id='anchor'></div>
+        <div id='rassegna'></div>
         <HomeLink classNames="ps-3 pt-3"></HomeLink>
         <div className="container pt-5 pt-xl-0">
             <div className="row gy-5">
                 <div className="col-12 col-xl-5 d-flex flex-column justify-content-center align-items-center align-items-xl-start text-xl-start">
-                    <p className={styles.location_info + ' fs-6 text-center badge text-bg-primary lh-base'}>{rassegna.location},<br className='d-inline d-md-none'></br> {rassegna.date}</p>
-                    <h1 className={styles.main_title}>{rassegna.event_name}</h1>
+                    <p className={styles.location_info + ' fs-6 text-center badge text-bg-primary lh-base'}>{rassegna.location},<br className='d-inline d-lg-none'></br> {rassegna.date}</p>
+                    <h1 className={styles.main_title + ' pt-3 pt-xl-0'}>{rassegna.event_name}</h1>
                     <div className="d-flex w-100 justify-content-center align-items-center align-items-xl-start flex-column">
                         <hr className='w-100'/>
                     </div>
                     <p className="fs-2 px-2 px-md-0 fst-italic">{rassegna.description}</p>
                 </div>
                 <div className="col-12 col-xl-7 d-flex justify-content-center align-items-center">
-                    <img className="shadow-lg rounded w-75" src={rassegna.volantino_src}/>
+                    <img className="shadow-lg rounded w-75 exclude" src={rassegna.volantino_src}/>
                     </div>
                 <div className="col-12 col-xl-12 pt-5">
                     <h3>Video Live</h3>
@@ -89,12 +97,16 @@ function RassegnaDettaglio() {
                             <img className={styles.yt_logo + ' position-absolute start-50 top-50 translate-middle exclude'} src={import.meta.env.BASE_URL + '/imgs/YT_logo.png'}></img>
                         </a>
                     </div>
-                    <p className='pt-4 fs-5'>Clicca sull'immagine per visionarlo su YouTube!</p>
+                    <p className='pt-4 fs-5'>Clicca sull'immagine per visionare il video su YouTube!</p>
                 </div>
             </div>
         </div>
         <div>
+            <div className="d-flex w-100 justify-content-center align-items-center flex-column">
+                <hr className='w-100'/>
+            </div>
             <h2 className='pt-5 fs-1 pb-3'>Galleria</h2>
+            <p>Clicca su un'immagine per aprirla nella galleria!</p>
             <div className="px-5"> 
                 {
                     (!allPhotosLoaded) ? 
