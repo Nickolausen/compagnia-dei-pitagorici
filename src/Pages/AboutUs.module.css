@@ -3,6 +3,15 @@
     backdrop-filter: blur(10px)
 }
 
+.about_img:hover {
+    animation: zoomIn .5s ease forwards;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(1); }
+    to { transform: scale(1.025); }
+}
+
 .icon {
     max-width: 250px;
     min-width: 200px;

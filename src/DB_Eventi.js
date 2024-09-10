@@ -12,14 +12,28 @@ function get_DB_Eventi()
             event_id: -1,
             event_name: "Notte Pitagorica",
             event_url: "",
-            description: "Quando la Matematica trasporta in luoghi oltre l'immaginazione.",
+            description: "Quando dai banchi di scuola la Matematica trasporta in luoghi oltre l'immaginazione.",
             date: "07 Maggio 2024",
             location: "Palazzo del Ridotto @ Cesena (FC)",
             thumbnail_src: "",
             volantino_src: "",
             yt_id: "nVibNQGm7Vg",
             yt_thumbnail: "",
-            flickr_album_id: "72177720320089939"
+            flickr_album_id: "72177720320089939",
+            articoli: [
+                {
+                    testata: "CesenaToday",
+                    articolo_url: "https://www.cesenatoday.it/cronaca/2protagonistra-la-matemativa-un-successo-la-notte-pitagorica-all-itt-pascal.html",
+                    title: "Protagonista la matematica, un successo la 'Notte Pitagorica' all'Itt Pascal",
+                    data: "17 maggio 2024"
+                },
+                {
+                    testata: "Corriere Cesenate",
+                    articolo_url: "https://www.corrierecesenate.it/Cesena/Notte-Pitagorica-l-Itt-Pascal-Grande-successo",
+                    title: "Notte Pitagorica, l'Itt Pascal: 'Grande successo'",
+                    data: "16 maggio 2024"
+                }
+            ]
         },
         {
             event_id: -1,
@@ -32,7 +46,33 @@ function get_DB_Eventi()
             volantino_src: "",
             yt_id: "ua4eGl-60rE",
             yt_thumbnail: "",
-            flickr_album_id: "72177720320073362"
+            flickr_album_id: "72177720320073362",
+            articoli: [
+                {
+                    testata: "Corriere Cesenate",
+                    articolo_url: "https://www.corrierecesenate.it/Cesena/Gli-Itinerari-cosmici-del-Pascal-alla-Rocca-Malatestiana",
+                    title: "Gli 'Itinerari cosmici' del Pascal alla Rocca Malatestiana",
+                    data: "24 luglio 2024"
+                },
+                {
+                    testata: "Corriere Cesenate",
+                    articolo_url: "https://www.corrierecesenate.it/Cesena/I-Pitagorici-dell-Itt-Pascal-propongono-gli-Itinerari-cosmici",
+                    title: "I Pitagorici dell'Itt Pascal propongono gli Itinerari cosmici",
+                    data: "29 luglio 2024"
+                },
+                {
+                    testata: "Corriere Cesenate",
+                    articolo_url: "https://www.corrierecesenate.it/Cesena/In-tanti-alla-Notte-pitagorica-.-La-fotogallery",
+                    title: "In tanti alla 'Notte pitagorica'. La fotogallery",
+                    data: "31 luglio 2024"
+                },
+                {
+                    testata: "Radio Studio Delta",
+                    articolo_url: "https://www.radiostudiodelta.it/events/itinerari-cosmici-alla-rocca-malatestiana/",
+                    title: "Itinerari Cosmici alla Rocca Malatestiana",
+                    data: "28 luglio 2024"
+                }
+            ]
         }
     ]
 

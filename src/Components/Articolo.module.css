@@ -1,0 +1,26 @@
+.articolo_container {
+    background: var(--secondary-bg-color);
+    quotes: "";
+    box-shadow: 5px 5px 7px var(--selection-color);
+}
+
+.articolo_container:hover {
+    background-color: var(--selection-color);
+    box-shadow: none;
+    animation: zoomIn .5s ease forwards;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(1); }
+    to { transform: scale(1.025); }
+}
+
+blockquote::before {
+    content: open-quote;
+}
+blockquote::after {
+    content: close-quote;
+}
+blockquote {
+quotes: "«" "»" "'" "'";
+}

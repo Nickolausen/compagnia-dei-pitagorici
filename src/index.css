@@ -26,11 +26,20 @@
   --accent-color-shadow: rgba(230, 230, 207, .5);
   --font-color: white;
   --bg-color: #030817;
-  --secondary-bg-color: #213547;
+  --secondary-bg-color: rgb(33, 53, 71);
+  --selection-color: rgb(20, 33, 44);
 }
 
-[class*="primary"], ::selection {
+[class*="primary"] {
   background-color: var(--secondary-bg-color) !important;
+}
+
+::selection {
+  background-color: var(--selection-color);
+}
+
+.yarl__slide_image:hover {
+  filter: none !important;
 }
 
 /* .gradient-background {

@@ -1,6 +1,19 @@
-.main_tetraktys {
+.main_container {
     animation: fadeIn 5s;
 }
+
+.main_tetraktys {
+    animation: shake 1.5s;
+}
+
+@keyframes shake {
+    0% { transform: rotate(0deg); }
+    33% { transform: rotate(30deg) scale(1.2); }
+    66% { transform: rotate(-45deg) scale(.8); }
+    90% { transform: rotate(35deg) scale(1.1); }
+    95% { transform: rotate(-10deg); }
+    100% { transform: rotate(0deg); }
+  }
 
 @keyframes fadeIn {
     0% { opacity: 0; }
@@ -8,5 +21,5 @@
   }
 
 .main_title {
-    font-size: calc(3rem + 2vw) !important;
+    font-size: calc(2.5rem + 2vw) !important;
 }

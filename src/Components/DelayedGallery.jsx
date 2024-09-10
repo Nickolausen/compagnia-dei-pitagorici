@@ -9,6 +9,7 @@ import "yet-another-react-lightbox/styles.css";
 
 import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
+import Slideshow from "yet-another-react-lightbox/plugins/slideshow";
 import Counter from "yet-another-react-lightbox/plugins/counter";
 import "yet-another-react-lightbox/plugins/counter.css";
 
@@ -22,7 +23,7 @@ function DelayedGallery(props) {
     
     /* ZOOM Plugin Params */
     const [ animationDuration, setAnimationDuration ] = useState(500);
-    const [ maxZoomPixelRatio, setMaxZoomPixelRatio ] = useState(1);
+    const [ maxZoomPixelRatio, setMaxZoomPixelRatio ] = useState(2);
     const [ zoomInMultiplier, setZoomInMultiplier ] = useState(2);
     const [ doubleTapDelay, setDoubleTapDelay ] = useState(300);
     const [ doubleClickDelay, setDoubleClickDelay ] = useState(300);
@@ -42,6 +43,11 @@ function DelayedGallery(props) {
     const [ gap, setGap ] = useState(10);
     const [ preload, setPreload ] = useState(2);
     const [ showToggle, setShowToggle ] = useState(true);
+
+
+    /* SLIDESHOW Plugin Params */
+    const [autoplay, setAutoplay] = useState(false);
+    const [delay, setDelay] = useState(3000);
     
     useEffect(() => 
         {
@@ -63,10 +69,11 @@ function DelayedGallery(props) {
                     fullscreen={{ auto }}
                     open={index >= 0}
                     close={() => setIndex(-1)}
-                    plugins={[Counter, Fullscreen, Zoom, Thumbnails]}
+                    plugins={[Counter, Fullscreen, Zoom, Thumbnails, Slideshow]}
                     animation={{ zoom: animationDuration }}
-                    counter={{ container: { className: "badge text-bg-primary", style: { top: 0, bottom: "unset" } } }}
+                    counter={{ container: { className: "badge text-bg-primary fs-6", style: { top: 0, bottom: "unset" } } }}
                     carousel={{ preload }}
+                    slideshow={{ autoplay, delay }}
                     zoom={{
                         maxZoomPixelRatio,
                         zoomInMultiplier,

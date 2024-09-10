@@ -15,7 +15,7 @@ function Footer(props)
                 <p>Errare humanum est, perseverare... <span className='fw-bold'>pytagoricum</span>!</p>
             </div>
             <hr className='d-lg-none my-4 opacity-50 px-5'/>
-            <div className="col-12 col-lg-4">
+            <div className="col-12 col-lg-4 d-flex flex-column justify-content-center align-items-center">
                 <a href="https://www.ispascalcomandini.it/" target='_blank'>
                     <img src={import.meta.env.BASE_URL + '/imgs/white_LOGO_PASCAL.png'} className='w-50 exclude'></img>
                 </a>

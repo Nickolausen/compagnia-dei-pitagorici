@@ -32,21 +32,21 @@ function AboutUs()
                     <div className="container-fluid px-0">
                         <div className="row g-3">
                             <div className="col-md-6 col-12">
-                                <img className="w-100" src={import.meta.env.BASE_URL + '\\imgs\\chi_siamo0.JPG'}></img>
+                                <img className={styles.about_img + " w-100"} src={import.meta.env.BASE_URL + '\\imgs\\chi_siamo0.JPG'}></img>
                             </div>
                             <div className="col-md-6 col-12">
-                                <img className="w-100" src={import.meta.env.BASE_URL + '\\imgs\\chi_siamo1.JPG'}></img>
+                                <img className={styles.about_img + " w-100"} src={import.meta.env.BASE_URL + '\\imgs\\chi_siamo1.JPG'}></img>
                             </div>
                         </div>
                         <div className="row g-3 pt-3">
                             <div className="col-12 col-md-12 col-lg-4">
-                                <img className="w-100" src={import.meta.env.BASE_URL + '\\imgs\\chi_siamo2.JPG'}></img>
+                                <img className={styles.about_img + " w-100"} src={import.meta.env.BASE_URL + '\\imgs\\chi_siamo2.JPG'}></img>
                             </div>
                             <div className="col-12 col-md-6 col-lg-4">
-                                <img className="w-100" src={import.meta.env.BASE_URL + '\\imgs\\chi_siamo3.JPG'}></img>
+                                <img className={styles.about_img + " w-100"} src={import.meta.env.BASE_URL + '\\imgs\\chi_siamo3.JPG'}></img>
                             </div>
                             <div className="col-12 col-md-6 col-lg-4">
-                                <img className="w-100" src={import.meta.env.BASE_URL + '\\imgs\\chi_siamo4.JPG'}></img>
+                                <img className={styles.about_img + " w-100"} src={import.meta.env.BASE_URL + '\\imgs\\chi_siamo4.JPG'}></img>
                             </div>
                         </div>
                     </div>
