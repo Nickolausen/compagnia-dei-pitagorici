@@ -38,10 +38,6 @@
   background-color: var(--selection-color);
 }
 
-.yarl__slide_image:hover {
-  filter: none !important;
-}
-
 /* .gradient-background {
   background: linear-gradient(254deg,#030817,#281650,#371790);
   background-size: 180% 180%;
@@ -130,8 +126,13 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-img:not(.exclude):hover, svg:hover {
-  filter: brightness(.75);
+img:not(.exclude, .yarl__slide_image):hover, svg:hover {
+  animation: zoomIn .35s ease forwards;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(1); }
+  to { transform: scale(1.025); }
 }
 
 hr {

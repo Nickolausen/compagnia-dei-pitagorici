@@ -91,8 +91,10 @@ function RassegnaDettaglio() {
         }, [])
     
     return <>
-        <div id='rassegna' className="d-flex justify-content-start align-items-start">
-            <HomeLink classNames="ps-3 pt-3"></HomeLink>
+        <div id='rassegna' className="container px-0 d-flex justify-content-center align-items-start">
+            <button className='btn btn-primary mt-4 mb-0 mb-xl-4 outline-0 border-0'>
+                <HomeLink></HomeLink>
+            </button>
         </div>
         <div className="container pt-5 pt-xl-0">
             <div className="row gy-5">
