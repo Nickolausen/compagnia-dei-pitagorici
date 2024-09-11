@@ -8,7 +8,7 @@ export default function Articolo(props)
                 {props.title}
             </blockquote>
             <figcaption class="blockquote-footer mt-3">
-                <a href={props.articolo_url} target='_blank' className='fs-6'>
+                <a href={props.articolo_url} target='_blank' className='animated_link fs-6'>
                     <cite title={props.testata}>{props.testata}, {props.data}</cite>
                 </a>
             </figcaption>

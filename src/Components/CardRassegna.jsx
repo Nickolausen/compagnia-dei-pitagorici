@@ -18,8 +18,7 @@ function CardRassegna(props)
                 <div className={styles.overlay + " card-body position-absolute bottom-0 start-50 translate-middle w-100 z-2"}>
                     <h5 className="card-title">{props.title}</h5>
                     <p className="card-text text-white">
-                        {props.description} - 
-                        <HashLink to={`${props.url}#rassegna`}> Clicca per vedere di più</HashLink>
+                        {props.description} - <HashLink className="animated_link" to={`${props.url}#rassegna`}> Clicca per vedere di più</HashLink>
                     </p>
                 </div>
             </> : 

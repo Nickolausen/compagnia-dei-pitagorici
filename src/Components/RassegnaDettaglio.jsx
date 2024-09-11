@@ -45,11 +45,11 @@ function RassegnaDettaglio() {
 
             fetchedRassegna.articoli.forEach(articolo => 
                 {
-                    if (countArticoli % 4 === 0) colClasses += " col-md-12 col-xl-3"
+                    if (countArticoli % 4 === 0) colClasses += " col-md-12 col-xl-6"
                     else if (countArticoli % 3 === 0) colClasses += " col-md-6 col-xl-4"
                     else if (countArticoli % 2 === 0) colClasses += " col-md-6"
 
-                    fetchedArticoli.push(<div className={colClasses + ' px-0 d-flex flex-column justify-content-center align-items-center'}>
+                    fetchedArticoli.push(<div style={{minHeight: 250 + "px"}} className={colClasses + ' px-0 d-flex flex-column justify-content-center align-items-center'}>
                         <Articolo { ...articolo}/>
                     </div>)
                 })
@@ -92,7 +92,7 @@ function RassegnaDettaglio() {
     
     return <>
         <div id='rassegna' className="container px-0 d-flex justify-content-center align-items-start">
-            <button className='btn btn-primary mt-4 mb-0 mb-xl-4 outline-0 border-0'>
+            <button className='btn mt-4 mb-0 mb-xl-4 outline-0 border-0'>
                 <HomeLink></HomeLink>
             </button>
         </div>
@@ -117,7 +117,7 @@ function RassegnaDettaglio() {
                             <img className={styles.yt_logo + ' position-absolute start-50 top-50 translate-middle exclude'} src={import.meta.env.BASE_URL + '/imgs/YT_logo.png'}></img>
                         </a>
                     </div>
-                    <p className='pt-4 fs-5'>Clicca sull'immagine per visionare il video su YouTube!</p>
+                    <p className='pt-4 fs-5'>Clicca sull'immagine per visionare il video su <a className="animated_link" href={'https://www.youtube.com/watch?v=' + rassegna.yt_id} target='_blank'>Youtube</a>!</p>
                 </div>
             </div>
         </div>

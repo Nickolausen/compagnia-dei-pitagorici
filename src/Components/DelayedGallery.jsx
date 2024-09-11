@@ -71,7 +71,7 @@ function DelayedGallery(props) {
                     close={() => setIndex(-1)}
                     plugins={[Counter, Fullscreen, Zoom, Thumbnails, Slideshow]}
                     animation={{ zoom: animationDuration }}
-                    counter={{ container: { className: "badge text-bg-primary fs-6", style: { top: 0, bottom: "unset" } } }}
+                    counter={{ container: { className: "fs-6", style: { top: 0, bottom: "unset" } } }}
                     carousel={{ preload }}
                     slideshow={{ autoplay, delay }}
                     zoom={{
