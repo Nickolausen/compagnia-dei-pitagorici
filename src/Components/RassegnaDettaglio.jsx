@@ -24,6 +24,7 @@ function RassegnaDettaglio() {
     const [ rassegna, setRassegna ] = useState({})
     const [ photos, setPhotos ] = useState([])
     const [ articoli, setArticoli ] = useState([])
+    const [ volantinoLoaded, setVolantinoLoaded ] = useState(false)
 
     /* Boolean flag to decide wether to display or not the photo gallery - turns 'True' when all the photos have been fetched */
     const [ allPhotosLoaded, setAllPhotosLoaded ] = useState(false)
@@ -47,6 +48,10 @@ function RassegnaDettaglio() {
                     </div>)
                 })
             setArticoli(fetchedArticoli)
+
+            getMeta(fetchedRassegna.volantino_src, (err, img) => {
+                setVolantinoLoaded(true)
+            })
 
             const requestURL = `https://www.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=${config.API_KEY}&photoset_id=${fetchedRassegna.flickr_album_id}&user_id=${config.USER_ID}&format=json&nojsoncallback=1`
             
@@ -100,8 +105,12 @@ function RassegnaDettaglio() {
                     <p className="fs-2 px-2 px-md-0 fst-italic">{rassegna.description}</p>
                 </div>
                 <div className="col-12 col-xl-7 d-flex justify-content-center align-items-center">
-                    <img className="shadow-lg rounded w-75 exclude" src={rassegna.volantino_src}/>
-                    </div>
+                    {
+                        volantinoLoaded ? 
+                            <img className="shadow-lg rounded w-75 exclude" src={rassegna.volantino_src}/> :
+                            <img className="shadow-lg rounded w-75 exclude" src={import.meta.env.BASE_URL + "/Volantino_Loading.jpg"}/> 
+                    }
+                </div>
                 <div className="col-12 col-xl-12 pt-5">
                     <h3>Video Live</h3>
                     <div className="ratio ratio-16x9">

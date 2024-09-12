@@ -14,7 +14,7 @@ function CardRassegna(props)
     return <div className="card w-100 border-0" style={{ width: "18rem" }}>
         { loaded ? 
             <>
-                <img src={props.thumbnail} className="card-img-top" alt="..." />
+                <img src={props.thumbnail} className="card-img-top exclude" alt="..." />
                 <div className={styles.overlay + " card-body position-absolute bottom-0 start-50 translate-middle w-100 z-2"}>
                     <h5 className="card-title">{props.title}</h5>
                     <p className="card-text text-white">

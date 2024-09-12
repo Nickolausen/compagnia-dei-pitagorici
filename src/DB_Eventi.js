@@ -27,17 +27,17 @@ function get_DB_Eventi()
             flickr_album_id: "72177720320089939",
             articoli: [
                 {
-                    testata_icon: testate_icons["CesenaToday"],
+                    testata_icon: "",
                     testata: "CesenaToday",
                     articolo_url: "https://www.cesenatoday.it/cronaca/2protagonistra-la-matemativa-un-successo-la-notte-pitagorica-all-itt-pascal.html",
-                    title: "Protagonista la matematica, un successo la 'Notte Pitagorica' all'Itt Pascal",
+                    title: `Protagonista la matematica, un successo la "Notte Pitagorica" all'Itt Pascal`,
                     data: "17/05/2024"
                 },
                 {
-                    testata_icon: testate_icons["Corriere Cesenate"],
+                    testata_icon: "",
                     testata: "Corriere Cesenate",
                     articolo_url: "https://www.corrierecesenate.it/Cesena/Notte-Pitagorica-l-Itt-Pascal-Grande-successo",
-                    title: "Notte Pitagorica, l'Itt Pascal: 'Grande successo'",
+                    title: `Notte Pitagorica, l'Itt Pascal: "Grande successo"`,
                     data: "16/05/2024"
                 }
             ]
@@ -56,31 +56,38 @@ function get_DB_Eventi()
             flickr_album_id: "72177720320073362",
             articoli: [
                 {
-                    testata_icon: testate_icons["Corriere Cesenate"],
+                    testata_icon: "",
                     testata: "Corriere Cesenate",
                     articolo_url: "https://www.corrierecesenate.it/Cesena/Gli-Itinerari-cosmici-del-Pascal-alla-Rocca-Malatestiana",
-                    title: "Gli 'Itinerari cosmici' del Pascal alla Rocca Malatestiana",
+                    title: `Gli "Itinerari cosmici" del Pascal alla Rocca Malatestiana`,
                     data: "24/07/2024"
                 },
                 {
-                    testata_icon: testate_icons["Corriere Cesenate"],
+                    testata_icon: "",
                     testata: "Corriere Cesenate",
                     articolo_url: "https://www.corrierecesenate.it/Cesena/I-Pitagorici-dell-Itt-Pascal-propongono-gli-Itinerari-cosmici",
-                    title: "I Pitagorici dell'Itt Pascal propongono gli Itinerari cosmici",
+                    title: `I Pitagorici dell'Itt Pascal propongono gli Itinerari cosmici`,
                     data: "29/07/2024"
                 },
                 {
-                    testata_icon: testate_icons["Corriere Cesenate"],
+                    testata_icon: "",
+                    testata: "CesenaToday",
+                    articolo_url: "https://www.cesenatoday.it/eventi/notte-pitagorica-astronomia-filosofia-e-arti-intrecciate-assieme-grazie-a-studenti-e-insegnanti-del-pascal.html",
+                    title: `Itinerari Cosmici: astronomia, filosofia e arti intrecciate assieme grazie a studenti e insegnanti del Pascal`,
+                    data: "24/07/2024"
+                },
+                {
+                    testata_icon: "",
                     testata: "Corriere Cesenate",
                     articolo_url: "https://www.corrierecesenate.it/Cesena/In-tanti-alla-Notte-pitagorica-.-La-fotogallery",
-                    title: "In tanti alla 'Notte pitagorica'. La fotogallery",
+                    title: `In tanti a "Itinerari Cosmici". La fotogallery`,
                     data: "31/07/2024"
                 },
                 {
-                    testata_icon: testate_icons["Radio Studio Delta"],
+                    testata_icon: "",
                     testata: "Radio Studio Delta",
                     articolo_url: "https://www.radiostudiodelta.it/events/itinerari-cosmici-alla-rocca-malatestiana/",
-                    title: "Itinerari Cosmici alla Rocca Malatestiana",
+                    title: `Itinerari Cosmici alla Rocca Malatestiana`,
                     data: "28/07/2024"
                 }
             ]
@@ -94,7 +101,10 @@ function get_DB_Eventi()
             evt.event_url = evt.event_name.trim().toLowerCase().replace(" ", "-") /* ESEMPIO: Notte Pitagorica -> notte-pitagorica */
             evt.thumbnail_src = thumbnails_dir + evt.event_url.toUpperCase().replace("-", "_") + "_COVER.JPG"
             evt.volantino_src = volantini_dir + evt.event_url.toUpperCase().replace("-", "_") + "_Volantino.png"
-            evt.yt_thumbnail = yt_thumbnails + "YT Thumbnail - " + evt.event_name.toUpperCase() + ".png" 
+            evt.yt_thumbnail = yt_thumbnails + "YT Thumbnail - " + evt.event_name.toUpperCase() + ".png"
+            evt.articoli.forEach(art => {
+                art.testata_icon = testate_icons[art.testata]
+            }) 
 
             idx += 1
         })

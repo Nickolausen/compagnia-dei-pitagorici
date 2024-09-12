@@ -3,7 +3,21 @@
 }
 
 .main_tetraktys {
-    animation: shake 1.5s;
+    animation: 1.5s ease-in shake, 10s ease-in 1.5s pulse infinite;
+}
+
+@keyframes pulse {
+  0% { 
+    transform: scale(1); 
+  }
+  
+  50% { 
+    transform: scale(1.15); 
+  }
+  
+  100% { 
+    transform: scale(1); 
+  }
 }
 
 @keyframes shake {

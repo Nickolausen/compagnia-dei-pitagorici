@@ -1,16 +1,41 @@
 import styles from './AboutUs.module.css'
-import { RowsPhotoAlbum } from 'react-photo-album'
-import "react-photo-album/rows.css";
+import DelayedGallery from '../Components/DelayedGallery';
+import { useState } from 'react';
+
+const getMeta = (url, cb) => {
+    const img = new Image();
+    img.onload = () => cb(null, img);
+    img.onerror = (err) => cb(err);
+    img.src = url;
+}
 
 function AboutUs() 
 {
+    const [ photos, setPhotos ] = useState([])
+    
+    useState(() => {
+        let fetchedPhotos = []
+        for (let i = 0; i < 5; i++) 
+        {
+            let imgPath = import.meta.env.BASE_URL + '\\imgs\\chi_siamo' + i + '.JPG'
+            getMeta(imgPath, (err, img) => {
+                fetchedPhotos.push({
+                    src: img.src,
+                    width: img.naturalWidth,
+                    height: img.naturalHeight
+                })
+            })
+        }
+
+        setPhotos(fetchedPhotos)
+    })
+    
     return (
         <section id="chi-siamo" className='container'>
             <div className="row">
                 <div className="col-12">
                     <div className="ps-0 px-lg-5 mx-3 mx-lg-0">
                         <div className='d-flex flex-column justify-content-center align-items-center px-0'>
-                            {/* <img className="w-25 py-3" src="src\assets\imgs\tetraktys_nowriting.png"></img> */}
                             <img className={styles.icon + " w-25 pt-3 exclude"} src={import.meta.env.BASE_URL + "\\imgs\\white_LOGO_PASCAL.png"}></img>
                             <hr className='w-100'/>
                         </div>
@@ -30,25 +55,7 @@ function AboutUs()
                 </div>
                 <div className="col-12 pt-5">
                     <div className="container-fluid px-0">
-                        <div className="row g-3">
-                            <div className="col-md-6 col-12">
-                                <img className={styles.about_img + " w-100"} src={import.meta.env.BASE_URL + '\\imgs\\chi_siamo0.JPG'}></img>
-                            </div>
-                            <div className="col-md-6 col-12">
-                                <img className={styles.about_img + " w-100"} src={import.meta.env.BASE_URL + '\\imgs\\chi_siamo1.JPG'}></img>
-                            </div>
-                        </div>
-                        <div className="row g-3 pt-3">
-                            <div className="col-12 col-md-12 col-lg-4">
-                                <img className={styles.about_img + " w-100"} src={import.meta.env.BASE_URL + '\\imgs\\chi_siamo2.JPG'}></img>
-                            </div>
-                            <div className="col-12 col-md-6 col-lg-4">
-                                <img className={styles.about_img + " w-100"} src={import.meta.env.BASE_URL + '\\imgs\\chi_siamo3.JPG'}></img>
-                            </div>
-                            <div className="col-12 col-md-6 col-lg-4">
-                                <img className={styles.about_img + " w-100"} src={import.meta.env.BASE_URL + '\\imgs\\chi_siamo4.JPG'}></img>
-                            </div>
-                        </div>
+                        <DelayedGallery photos={photos} targetRowHeight={350} timeout={2500}/>
                     </div>
                 </div>
             </div>
