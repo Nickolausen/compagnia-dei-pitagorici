@@ -1,9 +1,14 @@
+const thumbnails_dir = import.meta.env.BASE_URL + "\\imgs\\evt_thumbnails\\"
+const volantini_dir =  import.meta.env.BASE_URL + "\\imgs\\volantini\\"
+const yt_thumbnails = import.meta.env.BASE_URL + "\\imgs\\yt_thumbnails\\"
+const testate_icons = {
+    "CesenaToday": "https://www.cesenatoday.it/~shared/images/v2015/brands/citynews-cesenatoday.png",
+    "Corriere Cesenate": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKIWMx_mynMhe4ZbKw42a7sZEbKm8d4Lh3Tw&s",
+    "Radio Studio Delta": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGfnDaaV0Um7LHTk92ryH4GADvRp_sMYGoYA&s"
+}
+
 function get_DB_Eventi()
 {
-    const thumbnails_dir = import.meta.env.BASE_URL + "\\imgs\\evt_thumbnails\\"
-    const volantini_dir =  import.meta.env.BASE_URL + "\\imgs\\volantini\\"
-    const yt_thumbnails = import.meta.env.BASE_URL + "\\imgs\\yt_thumbnails\\"
-
     /*
         Array di oggetti contenenti tutte le informazioni di tutti gli eventi
     */
@@ -22,12 +27,14 @@ function get_DB_Eventi()
             flickr_album_id: "72177720320089939",
             articoli: [
                 {
+                    testata_icon: testate_icons["CesenaToday"],
                     testata: "CesenaToday",
                     articolo_url: "https://www.cesenatoday.it/cronaca/2protagonistra-la-matemativa-un-successo-la-notte-pitagorica-all-itt-pascal.html",
                     title: "Protagonista la matematica, un successo la 'Notte Pitagorica' all'Itt Pascal",
                     data: "17/05/2024"
                 },
                 {
+                    testata_icon: testate_icons["Corriere Cesenate"],
                     testata: "Corriere Cesenate",
                     articolo_url: "https://www.corrierecesenate.it/Cesena/Notte-Pitagorica-l-Itt-Pascal-Grande-successo",
                     title: "Notte Pitagorica, l'Itt Pascal: 'Grande successo'",
@@ -49,24 +56,28 @@ function get_DB_Eventi()
             flickr_album_id: "72177720320073362",
             articoli: [
                 {
+                    testata_icon: testate_icons["Corriere Cesenate"],
                     testata: "Corriere Cesenate",
                     articolo_url: "https://www.corrierecesenate.it/Cesena/Gli-Itinerari-cosmici-del-Pascal-alla-Rocca-Malatestiana",
                     title: "Gli 'Itinerari cosmici' del Pascal alla Rocca Malatestiana",
                     data: "24/07/2024"
                 },
                 {
+                    testata_icon: testate_icons["Corriere Cesenate"],
                     testata: "Corriere Cesenate",
                     articolo_url: "https://www.corrierecesenate.it/Cesena/I-Pitagorici-dell-Itt-Pascal-propongono-gli-Itinerari-cosmici",
                     title: "I Pitagorici dell'Itt Pascal propongono gli Itinerari cosmici",
                     data: "29/07/2024"
                 },
                 {
+                    testata_icon: testate_icons["Corriere Cesenate"],
                     testata: "Corriere Cesenate",
                     articolo_url: "https://www.corrierecesenate.it/Cesena/In-tanti-alla-Notte-pitagorica-.-La-fotogallery",
                     title: "In tanti alla 'Notte pitagorica'. La fotogallery",
                     data: "31/07/2024"
                 },
                 {
+                    testata_icon: testate_icons["Radio Studio Delta"],
                     testata: "Radio Studio Delta",
                     articolo_url: "https://www.radiostudiodelta.it/events/itinerari-cosmici-alla-rocca-malatestiana/",
                     title: "Itinerari Cosmici alla Rocca Malatestiana",

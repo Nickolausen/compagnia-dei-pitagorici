@@ -15,12 +15,10 @@
     to { transform: scale(1.025); }
 }
 
-blockquote::before {
-    content: open-quote;
-}
-blockquote::after {
-    content: close-quote;
-}
 blockquote {
-quotes: "«" "»" "'" "'";
+quotes: "«" "»" "«" "»";
+}
+
+.virgolette {
+    color: var(--accent-color);
 }

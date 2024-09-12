@@ -40,16 +40,9 @@ function RassegnaDettaglio() {
             setRassegna(fetchedRassegna)
 
             let fetchedArticoli = []
-            let countArticoli = fetchedRassegna.articoli.length
-            let colClasses = "col-12"
-
             fetchedRassegna.articoli.forEach(articolo => 
                 {
-                    if (countArticoli % 4 === 0) colClasses += " col-md-12 col-xl-6"
-                    else if (countArticoli % 3 === 0) colClasses += " col-md-6 col-xl-4"
-                    else if (countArticoli % 2 === 0) colClasses += " col-md-6"
-
-                    fetchedArticoli.push(<div style={{minHeight: 250 + "px"}} className={colClasses + ' px-0 d-flex flex-column justify-content-center align-items-center'}>
+                    fetchedArticoli.push(<div style={{minHeight: 250 + "px"}} className={'col-12 px-0 d-flex flex-column justify-content-center align-items-center'}>
                         <Articolo { ...articolo}/>
                     </div>)
                 })
@@ -135,8 +128,8 @@ function RassegnaDettaglio() {
         </div>
         <HorizontalRule/>
         <div>
-            <h2 className='pt-5 fs-1 pb-3'>Rassegna stampa</h2>
-            <div className="container-fluid mt-3">
+            <h2 className='pt-5 fs-1'>Rassegna stampa</h2>
+            <div className="container-fluid mt-1">
                 <div className="row">
                 { articoli }
                 </div>
