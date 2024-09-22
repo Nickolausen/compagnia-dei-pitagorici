@@ -23,7 +23,7 @@ function Footer(props)
         </div>
         <div className="row pt-5">
             <div className="col-12">
-                <span className={styles.credits}>Crafted with <i className="fa fa-heart" style={{ color: "red"}}></i> by <a className='animated_link text-decoration-none' href='https://github.com/Nickolausen'> Nicholas Magi</a> & <a className='animated_link text-decoration-none' href='https://github.com/lspita'> Ludovico Maria Spitaleri </a>  
+                <span className={styles.credits}>Crafted with <i className="fa fa-heart" style={{ color: "red"}}></i> by <a className='animated_link text-decoration-none' href='https://nicholas-magi-website.web.app/'> Nicholas Magi</a> & <a className='animated_link text-decoration-none' href='https://github.com/lspita'> Ludovico Maria Spitaleri </a>  
                 </span>
             </div>
         </div>
