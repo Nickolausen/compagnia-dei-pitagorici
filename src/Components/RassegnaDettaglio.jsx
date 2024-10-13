@@ -108,7 +108,7 @@ function RassegnaDettaglio() {
                     {
                         volantinoLoaded ? 
                             <img className="shadow-lg rounded w-75 exclude" src={rassegna.volantino_src}/> :
-                            <img className="shadow-lg rounded w-75 exclude" src={import.meta.env.BASE_URL + "/Volantino_Loading.jpg"}/> 
+                            <img className="shadow-lg rounded w-75 exclude" src={import.meta.env.BASE_URL + "Volantino_Loading.jpg"}/> 
                     }
                 </div>
                 <div className="col-12 col-xl-12 pt-5">
