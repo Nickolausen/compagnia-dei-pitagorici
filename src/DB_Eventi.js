@@ -1,6 +1,6 @@
-const thumbnails_dir = import.meta.env.BASE_URL + "\\imgs\\evt_thumbnails\\"
-const volantini_dir =  import.meta.env.BASE_URL + "\\imgs\\volantini\\"
-const yt_thumbnails = import.meta.env.BASE_URL + "\\imgs\\yt_thumbnails\\"
+const thumbnails_dir = import.meta.env.BASE_URL + "imgs\\evt_thumbnails\\"
+const volantini_dir =  import.meta.env.BASE_URL + "imgs\\volantini\\"
+const yt_thumbnails = import.meta.env.BASE_URL + "imgs\\yt_thumbnails\\"
 const testate_icons = {
     "CesenaToday": "https://www.cesenatoday.it/~shared/images/v2015/brands/citynews-cesenatoday.png",
     "Corriere Cesenate": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKIWMx_mynMhe4ZbKw42a7sZEbKm8d4Lh3Tw&s",

@@ -17,7 +17,7 @@ function AboutUs()
         let fetchedPhotos = []
         for (let i = 0; i < 5; i++) 
         {
-            let imgPath = import.meta.env.BASE_URL + '\\imgs\\chi_siamo' + i + '.JPG'
+            let imgPath = import.meta.env.BASE_URL + 'imgs\\chi_siamo' + i + '.JPG'
             getMeta(imgPath, (err, img) => {
                 fetchedPhotos.push({
                     src: img.src,
@@ -36,7 +36,7 @@ function AboutUs()
                 <div className="col-12">
                     <div className="ps-0 px-lg-5 mx-3 mx-lg-0">
                         <div className='d-flex flex-column justify-content-center align-items-center px-0'>
-                            <img className={styles.icon + " w-25 pt-3 exclude"} src={import.meta.env.BASE_URL + "\\imgs\\white_LOGO_PASCAL.png"}></img>
+                            <img className={styles.icon + " w-25 pt-3 exclude"} src={import.meta.env.BASE_URL + "imgs\\white_LOGO_PASCAL.png"}></img>
                             <hr className='w-100'/>
                         </div>
                         <h2 className='fs-1 py-3'>Una "congregazione" Made in Pascal</h2>
