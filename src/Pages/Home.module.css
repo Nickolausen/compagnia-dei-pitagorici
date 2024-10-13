@@ -3,7 +3,7 @@
 }
 
 .main_tetraktys {
-    animation: 1.5s ease-in shake, 10s ease-in 1.5s pulse infinite;
+    animation: 10s ease-in 1.5s pulse infinite;
 }
 
 @keyframes pulse {
@@ -19,15 +19,6 @@
     transform: scale(1); 
   }
 }
-
-@keyframes shake {
-    0% { transform: rotate(0deg); }
-    33% { transform: rotate(30deg) scale(1.2); }
-    66% { transform: rotate(-45deg) scale(.8); }
-    90% { transform: rotate(35deg) scale(1.1); }
-    95% { transform: rotate(-10deg); }
-    100% { transform: rotate(0deg); }
-  }
 
 @keyframes fadeIn {
     0% { opacity: 0; }
