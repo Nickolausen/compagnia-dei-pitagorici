@@ -58,6 +58,9 @@ function AboutUs()
                         <DelayedGallery photos={photos} targetRowHeight={350} timeout={2500}/>
                     </div>
                 </div>
+                <div className="col-12 pt-5">
+                    <p className='fs-4'>Diffondi anche tu il messaggio Pitagorico! Condividi la nostra <a className='animated_link' href='./COMPAGNIA DEI PITAGORICI - Brochure Telematica.pdf'>brochure</a> o il link a questo sito web!</p>
+                </div>
             </div>
         </section>
     )

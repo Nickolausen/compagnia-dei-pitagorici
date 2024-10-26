@@ -14,6 +14,8 @@ function App() {
 
     useEffect(() => {
         const fetchedCards = get_DB_Eventi().map(evt => {
+            let nums = [2, 3]
+
             return (<div key={evt.event_id} className="pt-3 col-12">
                 <HashLink to={evt.event_url + "#rassegna"}>
                   <CardRassegna

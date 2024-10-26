@@ -44,7 +44,7 @@ function RassegnaDettaglio() {
             fetchedRassegna.articoli.forEach(articolo => 
                 {
                     fetchedArticoli.push(<div style={{minHeight: 250 + "px"}} className={'col-12 px-0 d-flex flex-column justify-content-center align-items-center'}>
-                        <Articolo { ...articolo}/>
+                        <Articolo key={articolo.articolo_url} { ...articolo}/>
                     </div>)
                 })
             setArticoli(fetchedArticoli)
