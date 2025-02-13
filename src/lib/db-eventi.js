@@ -7,7 +7,7 @@ const testate_icons = {
     "Radio Studio Delta": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGfnDaaV0Um7LHTk92ryH4GADvRp_sMYGoYA&s"
 }
 
-function get_DB_Eventi()
+function getEvents()
 {
     /*
         Array di oggetti contenenti tutte le informazioni di tutti gli eventi
@@ -112,4 +112,4 @@ function get_DB_Eventi()
     return output
 } 
 
-export default get_DB_Eventi
+export default getEvents

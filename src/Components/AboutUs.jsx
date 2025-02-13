@@ -1,5 +1,5 @@
 import styles from './AboutUs.module.css'
-import DelayedGallery from '../Components/DelayedGallery';
+import DelayedGallery from '../components/DelayedGallery';
 import { useState } from 'react';
 
 const getMeta = (url, cb) => {

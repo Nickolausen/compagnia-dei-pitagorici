@@ -1,17 +1,16 @@
-import styles from './RassegnaDettaglio.module.css'
-import { RowsPhotoAlbum } from 'react-photo-album';
+import styles from './EventDetails.module.css'
 import "react-photo-album/rows.css";
 import { useState, useEffect } from 'react';
-import get_DB_Eventi from '../DB_Eventi';
+import getEvents from '../lib/db-eventi';
 import { useParams } from 'react-router-dom';
-import Footer from './Footer';
-import HomeLink from './HomeLink';
-import HorizontalRule from './HorizontalRule';
-import LoadingSpinner from './LoadingSpinner';
-import DelayedGallery from './DelayedGallery';
+import HomeLink from '../components/HomeLink';
+import HorizontalRule from '../components/HorizontalRule';
+import LoadingSpinner from '../components/LoadingSpinner';
+import DelayedGallery from '../components/DelayedGallery';
 import config from '../config.json'
-import NotFound from '../Pages/NotFound';
-import Articolo from './Articolo';
+import NotFound from './NotFound';
+import Articolo from '../components/Articolo';
+import DefaultLayout from '../components/layout/DefaultLayout';
 
 const getMeta = (url, cb) => {
     const img = new Image();
@@ -20,7 +19,7 @@ const getMeta = (url, cb) => {
     img.src = url;
 }
 
-function RassegnaDettaglio() {     
+function EventDetails() {     
     const [ rassegna, setRassegna ] = useState({})
     const [ photos, setPhotos ] = useState([])
     const [ articoli, setArticoli ] = useState([])
@@ -34,7 +33,7 @@ function RassegnaDettaglio() {
     useEffect(() => 
         {
             let fetchedRassegna = undefined
-            fetchedRassegna = get_DB_Eventi().find((el) => el.event_url === event_url)
+            fetchedRassegna = getEvents().find((el) => el.event_url === event_url)
             
             if (fetchedRassegna === undefined)
                 return <NotFound/>
@@ -53,7 +52,15 @@ function RassegnaDettaglio() {
                 setVolantinoLoaded(true)
             })
 
-            const requestURL = `https://www.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=${config.API_KEY}&photoset_id=${fetchedRassegna.flickr_album_id}&user_id=${config.USER_ID}&format=json&nojsoncallback=1`
+            const requestURL = new Array(
+                `https://www.flickr.com/services/rest/?`,
+                `method=flickr.photosets.getPhotos&`,
+                `api_key=${config.API_KEY}&`,
+                `photoset_id=${fetchedRassegna.flickr_album_id}&`,
+                `user_id=${config.USER_ID}&`,
+                `format=json&`,
+                `nojsoncallback=1`
+            ).join("")
             
             fetch(requestURL)
                 .then((res) => res.json())
@@ -88,7 +95,7 @@ function RassegnaDettaglio() {
                     })
         }, [])
     
-    return <>
+    return <DefaultLayout>
         <div id='rassegna' className="container px-0 d-flex justify-content-center align-items-start">
             <button className='btn mt-4 mb-0 mb-xl-4 outline-0 border-0'>
                 <HomeLink></HomeLink>
@@ -144,8 +151,7 @@ function RassegnaDettaglio() {
                 </div>
             </div>
         </div>
-        <Footer></Footer>
-    </>
+    </DefaultLayout>
 }
 
-export default RassegnaDettaglio
+export default EventDetails

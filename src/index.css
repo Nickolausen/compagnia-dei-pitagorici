@@ -38,31 +38,9 @@
   background-color: var(--selection-color);
 }
 
-/* .gradient-background {
-  background: linear-gradient(254deg,#030817,#281650,#371790);
-  background-size: 180% 180%;
-  animation: gradient-animation 6s ease infinite;
-} */
-
-@keyframes gradient-animation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
 #root, body {
   color: var(--font-color);
   background-color: var(--bg-color);
-}
-
-#root {
-  text-align: center;
 }
 
 .animated_link {
@@ -90,24 +68,14 @@
   transform-origin: bottom left;
 }
 
-article, section {
-  margin: 0 auto;
-  max-width: 1280px;
-}
-
 * {
   font-family: 'Inter';
 }
 
 a {
-  font-weight: 500;
   color: var(--accent-color);
-  text-decoration: inherit;
 }
 
-/* a:hover {
-  color: var(--accent-color-shadow);
-} */
 
 h1, h2, h3, h4, h5, .title-like {
   font-family: var(--second-font) !important;

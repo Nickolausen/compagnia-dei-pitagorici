@@ -1,4 +1,4 @@
-import HomeLink from '../Components/HomeLink'
+import HomeLink from '../components/HomeLink'
 import styles from './NotFound.module.css'
 
 function NotFound() 

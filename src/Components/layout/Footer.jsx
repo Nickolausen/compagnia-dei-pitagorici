@@ -1,5 +1,5 @@
 import styles from './Footer.module.css'
-import HomeLink from './HomeLink'
+import HomeLink from '../HomeLink'
 
 function Footer(props) 
 {
