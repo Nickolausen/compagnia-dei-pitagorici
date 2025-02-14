@@ -38,6 +38,22 @@
   background-color: var(--selection-color);
 }
 
+a {
+  text-decoration: none;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+main {
+  height: auto;
+}
+
+section {
+  min-height: 100dvh !important;
+}
+
 #root, body {
   color: var(--font-color);
   background-color: var(--bg-color);
@@ -81,16 +97,6 @@ h1, h2, h3, h4, h5, .title-like {
   font-family: var(--second-font) !important;
   color: var(--accent-color) !important;
   text-shadow: 3px 3px 5px var(--accent-color-shadow);
-}
-
-body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-#root, section {
-  min-height: 100vh;
 }
 
 h1 {

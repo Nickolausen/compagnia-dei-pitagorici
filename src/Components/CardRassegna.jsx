@@ -11,17 +11,18 @@ function CardRassegna(props)
     thumbnail.src = props.thumbnail
     thumbnail.onload = () => { setLoaded(true) }
     
-    return <div className="card w-100 border-0" style={{ width: "18rem" }}>
-        { loaded ? 
-            <>
-                <img src={props.thumbnail} className="card-img-top exclude" alt="..." />
+    return <div className="card w-75 border-0">
+        { loaded ?
+            <HashLink to={props.event_url + "#rassegna"}>
+                <img src={props.thumbnail} className="w-100 card-img-top exclude" alt="..." />
                 <div className={styles.overlay + " card-body position-absolute bottom-0 start-50 translate-middle w-100 z-2"}>
                     <h5 className="card-title">{props.title}</h5>
                     <p className="card-text text-white">
                         {props.description} - <HashLink className="animated_link" to={`${props.url}#rassegna`}> Clicca per vedere di più</HashLink>
                     </p>
                 </div>
-            </> : 
+            </HashLink>
+            : 
             <div className='w-100 h-100 d-flex flex-column justify-content-center align-items-center pt-3 bg-primary text-white'>
                 <LoadingSpinner loadingMessage="Caricando..."></LoadingSpinner>
             </div> 
