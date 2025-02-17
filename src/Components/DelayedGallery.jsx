@@ -62,7 +62,7 @@ function DelayedGallery(props) {
                     key={10} photos={props.photos} 
                     targetRowHeight={props.targetRowHeight}
                     onClick={({ index: current }) => setIndex(current)}/> 
-                
+
                 <Lightbox
                     index={index}
                     slides={props.photos}

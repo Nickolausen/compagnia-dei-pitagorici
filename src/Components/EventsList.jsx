@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import getEvents from "../lib/db-eventi";
-import CardRassegna from "./CardRassegna";
+import EventCard from "./EventCard";
 
 /**
  * UI Component to display events as list of cards
@@ -11,14 +11,14 @@ export default function EventsList() {
 
     useEffect(() => {
         const fetchedCards = getEvents().map(evt =>
-            <div key={evt.event_id} className="pt-3 col-12 d-flex justify-content-center">
-                <CardRassegna
+            <div key={evt.event_id} className="col-12 d-flex justify-content-center">
+                <EventCard
                     event_url={evt.event_url}
                     thumbnail={evt.thumbnail_src}
                     title={evt.event_name}
                     description={`${evt.location}, ${evt.date}`}
                     url={evt.event_url}>
-                </CardRassegna>
+                </EventCard>
             </div>
         );
         setCards(fetchedCards); // Aggiorniamo lo stato una sola volta
@@ -27,7 +27,7 @@ export default function EventsList() {
     return (
         <section id="rassegne" className='container-fluid d-flex flex-column pt-sm-5'>
             <h2 className="fs-1 pb-3 pt-5">Ultime rassegne</h2>
-            <div className="row">
+            <div className="row gy-4">
                 {cards}
             </div>
         </section>

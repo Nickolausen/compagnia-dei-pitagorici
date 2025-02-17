@@ -1,9 +1,9 @@
 import { HashLink } from 'react-router-hash-link'
-import styles from './CardRassegna.module.css'
+import styles from './EventCard.module.css'
 import LoadingSpinner from './LoadingSpinner'
 import { useState } from 'react'
 
-function CardRassegna(props) 
+function EventCard(props) 
 {
     let [ loaded, setLoaded ] = useState(false)
 
@@ -13,12 +13,12 @@ function CardRassegna(props)
     
     return <div className="card w-75 border-0">
         { loaded ?
-            <HashLink to={props.event_url + "#rassegna"}>
+            <HashLink to={`${props.url}#rassegna`}>
                 <img src={props.thumbnail} className="w-100 card-img-top exclude" alt="..." />
                 <div className={styles.overlay + " card-body position-absolute bottom-0 start-50 translate-middle w-100 z-2"}>
-                    <h5 className="card-title">{props.title}</h5>
-                    <p className="card-text text-white">
-                        {props.description} - <HashLink className="animated_link" to={`${props.url}#rassegna`}> Clicca per vedere di più</HashLink>
+                    <h5 className="card-title h-6">{props.title}</h5>
+                    <p className="card-text text-white fs-6">
+                        {props.description} - <span className="animated_link"> Clicca per vedere di più</span>
                     </p>
                 </div>
             </HashLink>
@@ -30,4 +30,4 @@ function CardRassegna(props)
   </div>
 }
 
-export default CardRassegna
+export default EventCard

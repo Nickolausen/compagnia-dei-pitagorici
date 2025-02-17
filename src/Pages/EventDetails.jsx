@@ -19,16 +19,24 @@ const getMeta = (url, cb) => {
     img.src = url;
 }
 
-function EventDetails() {     
+function EventDetails() {
+    const [ found, setFound ] = useState(false)
     const [ rassegna, setRassegna ] = useState({})
     const [ photos, setPhotos ] = useState([])
     const [ articoli, setArticoli ] = useState([])
     const [ volantinoLoaded, setVolantinoLoaded ] = useState(false)
-
+    const { event_url } = useParams()
+    
+    // const fetchPhotos = []
+    // const retrieveRassegna = new Promise((_) => 
+    //     getEvents().find((el) => el.event_url === event_url)
+    // )
+    // .then(setRassegna)
+    // .catch(_ => setFound(false))
+    
     /* Boolean flag to decide wether to display or not the photo gallery - turns 'True' when all the photos have been fetched */
     const [ allPhotosLoaded, setAllPhotosLoaded ] = useState(false)
     
-    const { event_url } = useParams()
 
     useEffect(() => 
         {
@@ -52,15 +60,14 @@ function EventDetails() {
                 setVolantinoLoaded(true)
             })
 
-            const requestURL = new Array(
-                `https://www.flickr.com/services/rest/?`,
-                `method=flickr.photosets.getPhotos&`,
+            const baseURL = "https://www.flickr.com/services/rest/?"
+            const requestURL = baseURL.concat(`method=flickr.photosets.getPhotos&`,
                 `api_key=${config.API_KEY}&`,
                 `photoset_id=${fetchedRassegna.flickr_album_id}&`,
                 `user_id=${config.USER_ID}&`,
                 `format=json&`,
                 `nojsoncallback=1`
-            ).join("")
+            )
             
             fetch(requestURL)
                 .then((res) => res.json())
