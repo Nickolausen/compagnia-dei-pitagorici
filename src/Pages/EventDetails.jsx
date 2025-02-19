@@ -20,23 +20,16 @@ const getMeta = (url, cb) => {
 }
 
 function EventDetails() {
-    const [ found, setFound ] = useState(false)
+    const [ shouldRenderVideo, setShouldRenderVideo ] = useState(false)
+    const [ shouldRenderArticles, setShouldRenderArticles ] = useState(false)
     const [ rassegna, setRassegna ] = useState({})
     const [ photos, setPhotos ] = useState([])
     const [ articoli, setArticoli ] = useState([])
     const [ volantinoLoaded, setVolantinoLoaded ] = useState(false)
     const { event_url } = useParams()
-    
-    // const fetchPhotos = []
-    // const retrieveRassegna = new Promise((_) => 
-    //     getEvents().find((el) => el.event_url === event_url)
-    // )
-    // .then(setRassegna)
-    // .catch(_ => setFound(false))
-    
+
     /* Boolean flag to decide wether to display or not the photo gallery - turns 'True' when all the photos have been fetched */
     const [ allPhotosLoaded, setAllPhotosLoaded ] = useState(false)
-    
 
     useEffect(() => 
         {
@@ -46,6 +39,7 @@ function EventDetails() {
             if (fetchedRassegna === undefined)
                 return <NotFound/>
             setRassegna(fetchedRassegna)
+            setShouldRenderVideo(fetchedRassegna.yt_id.localeCompare("") !== 0)
 
             let fetchedArticoli = []
             fetchedRassegna.articoli.forEach(articolo => 
@@ -55,6 +49,7 @@ function EventDetails() {
                     </div>)
                 })
             setArticoli(fetchedArticoli)
+            setShouldRenderArticles(fetchedArticoli.length > 0)
 
             getMeta(fetchedRassegna.volantino_src, (err, img) => {
                 setVolantinoLoaded(true)
@@ -125,16 +120,20 @@ function EventDetails() {
                             <img className="shadow-lg rounded w-75 exclude" src={import.meta.env.BASE_URL + "Volantino_Loading.jpg"}/> 
                     }
                 </div>
-                <div className="col-12 col-xl-12 pt-5">
-                    <h3>Video Live</h3>
-                    <div className="ratio ratio-16x9">
-                        <a href={'https://www.youtube.com/watch?v=' + rassegna.yt_id} target='_blank'>
-                            <img className='img-fluid rounded' src={rassegna.yt_thumbnail}></img>
-                            <img className={styles.yt_logo + ' position-absolute start-50 top-50 translate-middle exclude'} src={import.meta.env.BASE_URL + 'imgs/YT_logo.png'}></img>
-                        </a>
-                    </div>
-                    <p className='pt-4 fs-5'>Clicca sull'immagine per visionare il video su <a className="animated_link" href={'https://www.youtube.com/watch?v=' + rassegna.yt_id} target='_blank'>Youtube</a>!</p>
-                </div>
+                {
+                    shouldRenderVideo && <>
+                        <div className="col-12 col-xl-12 pt-5">
+                            <h3>Video Live</h3>
+                            <div className="ratio ratio-16x9">
+                                <a href={'https://www.youtube.com/watch?v=' + rassegna.yt_id} target='_blank'>
+                                    <img className='img-fluid rounded' src={rassegna.yt_thumbnail}></img>
+                                    <img className={styles.yt_logo + ' position-absolute start-50 top-50 translate-middle exclude'} src={import.meta.env.BASE_URL + 'imgs/YT_logo.png'}></img>
+                                </a>
+                            </div>
+                            <p className='pt-4 fs-5'>Clicca sull'immagine per visionare il video su <a className="animated_link" href={'https://www.youtube.com/watch?v=' + rassegna.yt_id} target='_blank'>Youtube</a>!</p>
+                        </div>    
+                    </>
+                }
             </div>
         </div>
         <div>
@@ -150,14 +149,16 @@ function EventDetails() {
             </div>
         </div>
         <HorizontalRule/>
-        <div>
-            <h2 className='pt-5 fs-1'>Rassegna stampa</h2>
-            <div className="container-fluid mt-1">
-                <div className="row">
-                { articoli }
+        { shouldRenderArticles && 
+            <div>
+                <h2 className='pt-5 fs-1'>Rassegna stampa</h2>
+                <div className="container-fluid mt-1">
+                    <div className="row">
+                    { articoli }
+                    </div>
                 </div>
             </div>
-        </div>
+        }
     </DefaultLayout>
 }
 

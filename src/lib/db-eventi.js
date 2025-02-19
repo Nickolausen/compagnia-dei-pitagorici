@@ -1,6 +1,3 @@
-const thumbnails_dir = import.meta.env.BASE_URL + "imgs\\evt_thumbnails\\"
-const volantini_dir =  import.meta.env.BASE_URL + "imgs\\volantini\\"
-const yt_thumbnails = import.meta.env.BASE_URL + "imgs\\yt_thumbnails\\"
 const testate_icons = {
     "CesenaToday": "https://www.cesenatoday.it/~shared/images/v2015/brands/citynews-cesenatoday.png",
     "Corriere Cesenate": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKIWMx_mynMhe4ZbKw42a7sZEbKm8d4Lh3Tw&s",
@@ -91,17 +88,38 @@ function getEvents()
                     data: "28/07/2024"
                 }
             ]
+        },
+        {
+            event_id: -1,
+            event_name: "Notte Pitagorica - Lions Edition",
+            event_url: "",
+            description: "Incursione alla conviviale del Lions Club Rubicone",
+            date: "24 Gennaio 2025",
+            location: "Hotel Savini @ Bellaria - Igea Marina (RN)",
+            thumbnail_src: "",
+            volantino_src: "",
+            yt_id: "",
+            yt_thumbnail: "",
+            flickr_album_id: "72177720323918596",
+            articoli: []
         }
+
     ]
 
     let idx = 0
     output.forEach(evt => 
         {
+            /* ESEMPIO: Notte Pitagorica - Lions Edition => notte-pitagorica---lions-edition */
+            const eventCode = evt.event_name.trim().toLowerCase()
+                .replaceAll(" ", "-")
+            const eventDirectory = import.meta.env.BASE_URL + "rassegne".concat(`/${eventCode}`)
+            
             evt.event_id = idx
-            evt.event_url = evt.event_name.trim().toLowerCase().replace(" ", "-") /* ESEMPIO: Notte Pitagorica -> notte-pitagorica */
-            evt.thumbnail_src = thumbnails_dir + evt.event_url.toUpperCase().replace("-", "_") + "_COVER.JPG"
-            evt.volantino_src = volantini_dir + evt.event_url.toUpperCase().replace("-", "_") + "_Volantino.png"
-            evt.yt_thumbnail = yt_thumbnails + "YT Thumbnail - " + evt.event_name.toUpperCase() + ".png"
+            evt.event_url = eventCode
+            evt.thumbnail_src = eventDirectory.concat("/thumbnail").concat("/cover.jpg")
+            evt.volantino_src = eventDirectory.concat("/volantino").concat("/volantino.png")
+            evt.yt_thumbnail = eventDirectory.concat("/yt-thumb").concat("/copertina.png")
+
             evt.articoli.forEach(art => {
                 art.testata_icon = testate_icons[art.testata]
             }) 

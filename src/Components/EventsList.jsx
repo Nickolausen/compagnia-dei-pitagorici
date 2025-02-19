@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import getEvents from "../lib/db-eventi";
+import './EventsList.module.css'
 import EventCard from "./EventCard";
+import { Carousel } from "@kkx64/react-simple-carousel";
 
 /**
  * UI Component to display events as list of cards
@@ -26,8 +28,8 @@ export default function EventsList() {
 
     return (
         <section id="rassegne" className='container-fluid d-flex flex-column pt-sm-5'>
-            <h2 className="fs-1 pb-3 pt-5">Ultime rassegne</h2>
-            <div className="row gy-4">
+            <h2 className="fs-1 pb-3 pt-5">I nostri eventi</h2>
+            <div className="row gy-5">
                 {cards}
             </div>
         </section>

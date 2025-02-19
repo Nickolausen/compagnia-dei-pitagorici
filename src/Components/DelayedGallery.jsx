@@ -20,7 +20,7 @@ function DelayedGallery(props) {
     const [ shouldRender, setShouldRender ] = useState(false)
     const [ index, setIndex ] = useState(-1)
     const [ auto, setAuto ] = useState(false)
-    
+
     /* ZOOM Plugin Params */
     const [ animationDuration, setAnimationDuration ] = useState(500);
     const [ maxZoomPixelRatio, setMaxZoomPixelRatio ] = useState(2);
@@ -43,7 +43,6 @@ function DelayedGallery(props) {
     const [ gap, setGap ] = useState(10);
     const [ preload, setPreload ] = useState(2);
     const [ showToggle, setShowToggle ] = useState(true);
-
 
     /* SLIDESHOW Plugin Params */
     const [autoplay, setAutoplay] = useState(false);
@@ -97,7 +96,7 @@ function DelayedGallery(props) {
                         }}
                 />
             </> :
-            <LoadingSpinner loadingMessage="Caricando tutte le foto..."></LoadingSpinner>
+            <LoadingSpinner className="text-center" loadingMessage="Caricando tutte le foto..."></LoadingSpinner>
         }
     </>
 }

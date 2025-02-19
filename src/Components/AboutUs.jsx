@@ -1,13 +1,7 @@
 import styles from './AboutUs.module.css'
-import DelayedGallery from '../components/DelayedGallery';
 import { useState } from 'react';
-
-const getMeta = (url, cb) => {
-    const img = new Image();
-    img.onload = () => cb(null, img);
-    img.onerror = (err) => cb(err);
-    img.src = url;
-}
+import { getImageMetadata } from '../lib/utils';
+import DelayedGallery from './DelayedGallery';
 
 function AboutUs() 
 {
@@ -17,8 +11,8 @@ function AboutUs()
         let fetchedPhotos = []
         for (let i = 0; i < 5; i++) 
         {
-            let imgPath = import.meta.env.BASE_URL + 'imgs\\chi_siamo' + i + '.JPG'
-            getMeta(imgPath, (err, img) => {
+            let imgPath = import.meta.env.BASE_URL + 'imgs\\about_us\\chi_siamo' + i + '.JPG'
+            getImageMetadata(imgPath, (_, img) => {
                 fetchedPhotos.push({
                     src: img.src,
                     width: img.naturalWidth,
@@ -31,35 +25,29 @@ function AboutUs()
     })
     
     return (
-        <section id="chi-siamo" className='container'>
+        <section id="chi-siamo" className='container d-flex align-items-stretch py-5'>
             <div className="row">
-                <div className="col-12">
-                    <div className="ps-0 px-lg-5 mx-3 mx-lg-0">
-                        <div className='d-flex flex-column justify-content-center align-items-center px-0'>
-                            <img className={styles.icon + " w-25 pt-3 exclude"} src={import.meta.env.BASE_URL + "imgs\\white_LOGO_PASCAL.png"}></img>
-                            <hr className='w-100'/>
-                        </div>
-                        <h2 className='fs-1 py-3'>Una "congregazione" Made in Pascal</h2>
-                        <p className="fs-4 lh-md mt-5">
-                            <p>
-                                La <span className="fw-bold">Compagnia dei Pitagorici</span> affonda le proprie radici 
-                                nell'<span className="fw-bold">Istituto Tecnico Tecnologico "Blaise Pascal" di Cesena</span> ed è composta da docenti, studenti ed ex studenti della nostra scuola. 
-                            </p>
-                            <p>La nostra missione è semplice: diffondere la <span className='fw-bold'>passione</span> per la <span className='title-like'>matematica</span> e, più in generale, l'<span className='fw-bold'>amore</span> per la <span className='title-like'>conoscenza</span>.</p> 
-                            <p>
-                                Non sempre si riesce a cogliere la bellezza di una disciplina attraverso i banchi di scuola, 
-                                per cui le nostre rassegne propongono una chiave di lettura <span className="fw-bold">leggera</span> <span className="fst-italic">(ma non banale!)</span> di concetti più disparati: Matematica, Letteratura, Musica, Informatica, Astronomia...</p>
-                            <p className='pt-4'>Per partecipare ai nostri eventi occorre seguire una sola regola: <br></br><span className="title-like">non parlare di cose pitagoriche al buio</span>!</p>
+                <div className="col-12 col-xl-5">
+                <img className={styles.icon + " w-25 pt-3 exclude"} src={import.meta.env.BASE_URL + "imgs\\white_LOGO_PASCAL.png"}></img>
+                <h2 className='text-center text-xl-start display-4 pb-3 pt-4'>Una "congregazione" Made in Pascal</h2>
+                    <article className="fs-4 lh-md text-center text-xl-start">
+                        <p>
+                            Il progetto della “<b><i>Notte Pitagorica</i></b>” parte dai banchi di scuola per generare un movimento di idee costruttivo e innovativo 
+                            sulla matematica e sulla sua applicazione nella realtà di ogni giorno. L'obiettivo è quello di divulgare la conoscenza 
+                            scientifica in forma di spettacolo, unendo all’<b>indagine matematica</b> il fascino della <b>musica</b> e della <b>poesia</b>, 
+                            suscitando nel pubblico quel senso di stupore 
+                            che contraddistingue la <b>bellezza della scoperta</b>.
                         </p>
-                    </div>
+                        <p>
+                            Protagonisti di questo viaggio sono <b>studenti</b> ed <b>ex studenti</b> del nostro istituto che, 
+                            dialogando con i docenti, affrontano con <b>passione</b> e <b>competenza</b> questioni
+                            scientifiche che riflettono la complessità del reale e le 
+                            sfide della nostra contemporaneità.
+                        </p>
+                    </article>
                 </div>
-                <div className="col-12 pt-5">
-                    <div className="container-fluid px-0">
-                        <DelayedGallery photos={photos} targetRowHeight={350} timeout={2500}/>
-                    </div>
-                </div>
-                <div className="col-12 pt-5">
-                    <p className='fs-4'>Diffondi anche tu il messaggio Pitagorico! Condividi la nostra <a className='animated_link' href='./COMPAGNIA DEI PITAGORICI - Brochure Telematica.pdf'>brochure</a> o il link a questo sito web!</p>
+                <div className="col-12 col-xl-7 px-xl-5 d-flex align-items-center">
+                    <DelayedGallery photos={photos} targetRowHeight={300} timeout={3500}/>
                 </div>
             </div>
         </section>
