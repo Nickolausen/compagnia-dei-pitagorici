@@ -1,0 +1,22 @@
+.main_container {
+    animation: fadeIn 5s;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.main_title {
+    font-size: calc(2.5rem + 2vw) !important;
+}
+
+.main_tetraktys {
+    width: 50% !important;
+}
+
+@media screen and (max-width: 768px) {
+    .main_tetraktys {
+        width: 100% !important;
+    }
+}

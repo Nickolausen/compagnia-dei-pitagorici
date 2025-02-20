@@ -1,0 +1,26 @@
+.volantino {
+    max-height: 750px;
+}
+
+.main_title {
+    font-size: 4rem;
+}
+
+@media screen and (width < 1200px) 
+{
+    .main_title {
+        font-size: 3.50rem;
+    }
+}
+
+.location_info {
+    width: fit-content;
+}
+
+.yt_logo {
+    max-width: 100px;
+}
+
+.cover {
+    min-height: 750px;
+}

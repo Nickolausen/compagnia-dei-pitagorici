@@ -1,0 +1,16 @@
+.articolo_container {
+    quotes: "";
+}
+
+@keyframes zoomIn {
+    from { transform: scale(1); }
+    to { transform: scale(1.025); }
+}
+
+blockquote {
+quotes: "«" "»" "«" "»";
+}
+
+.virgolette {
+    color: var(--accent-color);
+}

@@ -1,0 +1,27 @@
+.row {
+    background-color: var(--secondary-bg-color);
+    backdrop-filter: blur(10px)
+}
+
+.first_paragraph::first-letter {
+    initial-letter: 3;
+    padding-right: 8px;
+}
+
+.about_img:hover {
+    animation: zoomIn .5s ease forwards;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(1); }
+    to { transform: scale(1.025); }
+}
+
+.icon {
+    max-width: 250px;
+    min-width: 200px;
+}
+
+.carousel_cell {
+    background-color: #535C91;
+}
