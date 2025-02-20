@@ -23,10 +23,12 @@ function AboutUs() {
         <section id="chi-siamo" className='container d-flex align-items-stretch py-5'>
             <div className="row">
                 <div className="col-12 col-xl-6">
-                <img className={styles.icon + " w-25 pt-3 exclude"} src={import.meta.env.BASE_URL + "imgs\\white_LOGO_PASCAL.png"}></img>
+                <div className='text-center'>
+                    <img className={styles.icon + " w-25 pt-3 exclude"} src={import.meta.env.BASE_URL + "imgs\\white_LOGO_PASCAL.png"}></img>
+                </div>
                 <h2 className='text-center text-xl-start display-6 pb-3 pt-4'>Una "congregazione" <br /><span className='title-like display-3'>Made in Pascal</span></h2>
                 <h3></h3>
-                    <article className="fs-5 lh-md text-center text-xl-start">
+                    <article className="fs-5 lh-md text-xl-start">
                         <p className={styles.first_paragraph}>
                             <b className='title-like'>Notte Pitagorica</b> — un progetto che parte dai banchi di scuola per generare un movimento di idee costruttivo e innovativo 
                             sulla matematica e sulla sua applicazione nella realtà di ogni giorno.
@@ -46,7 +48,7 @@ function AboutUs() {
                     </article>
                 </div>
                 <div className="col-12 col-xl-6 px-xl-5 d-flex align-items-center">
-                    <div className="container-fluid">
+                    <div className="container-fluid text-center">
                         <div className="row g-3">
                             { photos }
                             <div>Dai un occhio alla nostra <a className='animated_link' href={import.meta.env.BASE_URL.concat('COMPAGNIA DEI PITAGORICI - Brochure Telematica.pdf')}>brochure</a>!</div>

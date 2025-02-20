@@ -40,13 +40,13 @@ function EventDetails() {
             })
 
             const baseURL = "https://www.flickr.com/services/rest/?"
-            const requestURL = baseURL.concat(`method=flickr.photosets.getPhotos&`,
-                `api_key=${config.API_KEY}&`,
-                `photoset_id=${fetchedRassegna.flickr_album_id}&`,
-                `user_id=${config.USER_ID}&`,
-                `format=json&`,
-                `nojsoncallback=1`
-            )
+            const requestURL = baseURL
+                .concat(`method=flickr.photosets.getPhotos&`)
+                .concat(`api_key=${config.API_KEY}&`)
+                .concat(`photoset_id=${fetchedRassegna.flickr_album_id}&`)
+                .concat(`user_id=${config.USER_ID}&`)
+                .concat(`format=json&`)
+                .concat(`nojsoncallback=1`)
             
             fetch(requestURL)
                 .then((res) => res.json())
@@ -63,7 +63,7 @@ function EventDetails() {
 
                         for (const pic of data.photoset.photo) 
                         {
-                            getImageMetadata(`https://live.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}_b.jpg`, (err, img) => {
+                            getImageMetadata(`https://live.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}_b.jpg`, (_, img) => {
                                 fetchedPhotos.push({
                                     src: img.src,
                                     width: img.naturalWidth,
@@ -87,7 +87,7 @@ function EventDetails() {
                 <HomeLink></HomeLink>
             </button>
         </div>
-        <div className="container pt-5 pt-xl-0">
+        <div className="container pt-5 pt-xl-0 text-center">
             <div className="row gy-5">
                 <div className="col-12 col-xl-5 d-flex flex-column justify-content-center align-items-center align-items-xl-start text-xl-start">
                     <p className={styles.location_info + ' fs-6 text-center badge text-bg-primary lh-base'}>{rassegna.location},<br className='d-inline d-lg-none'></br> {rassegna.date}</p>
@@ -121,7 +121,7 @@ function EventDetails() {
                 }
             </div>
         </div>
-        <div className='pb-5'>
+        <div className='pb-5 text-center'>
             <h2 className='pt-5 fs-1 pb-3'>Galleria</h2>
             <p>Clicca su un'immagine per aprirla nella galleria!</p>
             <div className="px-5"> 
