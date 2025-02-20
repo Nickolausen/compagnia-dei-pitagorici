@@ -1,7 +1,8 @@
 const testate_icons = {
     "CesenaToday": "https://www.cesenatoday.it/~shared/images/v2015/brands/citynews-cesenatoday.png",
     "Corriere Cesenate": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKIWMx_mynMhe4ZbKw42a7sZEbKm8d4Lh3Tw&s",
-    "Radio Studio Delta": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGfnDaaV0Um7LHTk92ryH4GADvRp_sMYGoYA&s"
+    "Radio Studio Delta": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGfnDaaV0Um7LHTk92ryH4GADvRp_sMYGoYA&s",
+    "Resto del Carlino": "https://play-lh.googleusercontent.com/tVt4JnKwPGYnbcvyRfm6dD3JI_k-OEpU4w0H7BKNUoxuV-_QoedK1Jk37ApVW-6nl60=w240-h480-rw"
 }
 
 function getEvents()
@@ -24,18 +25,18 @@ function getEvents()
             flickr_album_id: "72177720320089939",
             articoli: [
                 {
-                    testata_icon: "",
-                    testata: "CesenaToday",
-                    articolo_url: "https://www.cesenatoday.it/cronaca/2protagonistra-la-matemativa-un-successo-la-notte-pitagorica-all-itt-pascal.html",
+                    journalIcon: "",
+                    journal: "CesenaToday",
+                    url: "https://www.cesenatoday.it/cronaca/2protagonistra-la-matemativa-un-successo-la-notte-pitagorica-all-itt-pascal.html",
                     title: `Protagonista la matematica, un successo la "Notte Pitagorica" all'Itt Pascal`,
-                    data: "17/05/2024"
+                    date: "17/05/2024"
                 },
                 {
-                    testata_icon: "",
-                    testata: "Corriere Cesenate",
-                    articolo_url: "https://www.corrierecesenate.it/Cesena/Notte-Pitagorica-l-Itt-Pascal-Grande-successo",
+                    journalIcon: "",
+                    journal: "Corriere Cesenate",
+                    url: "https://www.corrierecesenate.it/notte-pitagorica-litt-pascal-grande-successo/",
                     title: `Notte Pitagorica, l'Itt Pascal: "Grande successo"`,
-                    data: "16/05/2024"
+                    date: "16/05/2024"
                 }
             ]
         },
@@ -53,39 +54,39 @@ function getEvents()
             flickr_album_id: "72177720320073362",
             articoli: [
                 {
-                    testata_icon: "",
-                    testata: "Corriere Cesenate",
-                    articolo_url: "https://www.corrierecesenate.it/Cesena/Gli-Itinerari-cosmici-del-Pascal-alla-Rocca-Malatestiana",
+                    journalIcon: "",
+                    journal: "Corriere Cesenate",
+                    url: "https://www.corrierecesenate.it/Cesena/Gli-Itinerari-cosmici-del-Pascal-alla-Rocca-Malatestiana",
                     title: `Gli "Itinerari cosmici" del Pascal alla Rocca Malatestiana`,
-                    data: "24/07/2024"
+                    date: "24/07/2024"
                 },
                 {
-                    testata_icon: "",
-                    testata: "Corriere Cesenate",
-                    articolo_url: "https://www.corrierecesenate.it/Cesena/I-Pitagorici-dell-Itt-Pascal-propongono-gli-Itinerari-cosmici",
+                    journalIcon: "",
+                    journal: "Corriere Cesenate",
+                    url: "https://www.corrierecesenate.it/i-pitagorici-dellitt-pascal-propongono-gli-itinerari-cosmici/",
                     title: `I Pitagorici dell'Itt Pascal propongono gli Itinerari cosmici`,
-                    data: "29/07/2024"
+                    date: "29/07/2024"
                 },
                 {
-                    testata_icon: "",
-                    testata: "CesenaToday",
-                    articolo_url: "https://www.cesenatoday.it/eventi/notte-pitagorica-astronomia-filosofia-e-arti-intrecciate-assieme-grazie-a-studenti-e-insegnanti-del-pascal.html",
+                    journalIcon: "",
+                    journal: "CesenaToday",
+                    url: "https://www.cesenatoday.it/eventi/notte-pitagorica-astronomia-filosofia-e-arti-intrecciate-assieme-grazie-a-studenti-e-insegnanti-del-pascal.html",
                     title: `Itinerari Cosmici: astronomia, filosofia e arti intrecciate assieme grazie a studenti e insegnanti del Pascal`,
-                    data: "24/07/2024"
+                    date: "24/07/2024"
                 },
                 {
-                    testata_icon: "",
-                    testata: "Corriere Cesenate",
-                    articolo_url: "https://www.corrierecesenate.it/Cesena/In-tanti-alla-Notte-pitagorica-.-La-fotogallery",
+                    journalIcon: "",
+                    journal: "Corriere Cesenate",
+                    url: "https://www.corrierecesenate.it/Cesena/In-tanti-alla-Notte-pitagorica-.-La-fotogallery",
                     title: `In tanti a "Itinerari Cosmici". La fotogallery`,
-                    data: "31/07/2024"
+                    date: "31/07/2024"
                 },
                 {
-                    testata_icon: "",
-                    testata: "Radio Studio Delta",
-                    articolo_url: "https://www.radiostudiodelta.it/events/itinerari-cosmici-alla-rocca-malatestiana/",
+                    journalIcon: "",
+                    journal: "Radio Studio Delta",
+                    url: "https://www.radiostudiodelta.it/events/itinerari-cosmici-alla-rocca-malatestiana/",
                     title: `Itinerari Cosmici alla Rocca Malatestiana`,
-                    data: "28/07/2024"
+                    date: "28/07/2024"
                 }
             ]
         },
@@ -101,7 +102,15 @@ function getEvents()
             yt_id: "",
             yt_thumbnail: "",
             flickr_album_id: "72177720323918596",
-            articoli: []
+            articoli: [
+                {
+                    journalIcon: "",
+                    journal: "Resto del Carlino",
+                    url: "https://www.ilrestodelcarlino.it/cesena/cronaca/giovani-talenti-protagonisti-alla-notte-d0656d2e",
+                    title: `Giovani talenti protagonisti alla Notte Pitagorica del Pascal`,
+                    date: "26/01/2025"
+                }
+            ]
         }
 
     ]
@@ -121,7 +130,7 @@ function getEvents()
             evt.yt_thumbnail = eventDirectory.concat("/yt-thumb").concat("/copertina.png")
 
             evt.articoli.forEach(art => {
-                art.testata_icon = testate_icons[art.testata]
+                art.journalIcon = testate_icons[art.journal]
             }) 
 
             idx += 1
@@ -131,3 +140,7 @@ function getEvents()
 } 
 
 export default getEvents
+
+export function getArticles() {
+    return getEvents().map(evt => evt.articoli).flat()
+}

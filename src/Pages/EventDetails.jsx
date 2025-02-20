@@ -113,12 +113,13 @@ function EventDetails() {
                     </div>
                     <p className="fs-2 px-2 px-md-0 fst-italic">{rassegna.description}</p>
                 </div>
-                <div className="col-12 col-xl-7 d-flex justify-content-center align-items-center">
+                <div className="col-12 col-xl-7 d-flex flex-column justify-content-center align-items-center">
                     {
                         volantinoLoaded ? 
                             <img className="shadow-lg rounded w-75 exclude" src={rassegna.volantino_src}/> :
                             <img className="shadow-lg rounded w-75 exclude" src={import.meta.env.BASE_URL + "Volantino_Loading.jpg"}/> 
                     }
+                    <HorizontalRule/>
                 </div>
                 {
                     shouldRenderVideo && <>
@@ -136,8 +137,7 @@ function EventDetails() {
                 }
             </div>
         </div>
-        <div>
-            <HorizontalRule/>
+        <div className='pb-5'>
             <h2 className='pt-5 fs-1 pb-3'>Galleria</h2>
             <p>Clicca su un'immagine per aprirla nella galleria!</p>
             <div className="px-5"> 
@@ -148,17 +148,6 @@ function EventDetails() {
                 }
             </div>
         </div>
-        <HorizontalRule/>
-        { shouldRenderArticles && 
-            <div>
-                <h2 className='pt-5 fs-1'>Rassegna stampa</h2>
-                <div className="container-fluid mt-1">
-                    <div className="row">
-                    { articoli }
-                    </div>
-                </div>
-            </div>
-        }
     </DefaultLayout>
 }
 

@@ -11,11 +11,11 @@ function EventCard(props)
     thumbnail.src = props.thumbnail
     thumbnail.onload = () => { setLoaded(true) }
     
-    return <div className="card w-75 border-0">
+    return <div className="card w-100 border-0" style={{ width: "18rem" }}>
         { loaded ?
             <HashLink to={`${props.url}#rassegna`}>
-                <img src={props.thumbnail} className="w-100 card-img-top exclude" alt="..." />
-                <div className={styles.overlay + " card-body position-absolute bottom-0 start-50 translate-middle w-100 z-2"}>
+                <img src={props.thumbnail} className="card-img-top exclude" alt="..."></img>
+                <div className={`${styles.overlay} card-body position-absolute bottom-0 start-50 translate-middle w-100 z-2`}>
                     <h5 className="card-title h-6">{props.title}</h5>
                     <p className="card-text text-white fs-6">
                         {props.description} - <span className="animated_link"> Clicca per vedere di più</span>

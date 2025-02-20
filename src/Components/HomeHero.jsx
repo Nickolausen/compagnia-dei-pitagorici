@@ -7,11 +7,11 @@ function HomeHero() {
             <section id='home' className={styles.main_container + 'z-1 d-flex justify-content-center align-items-center flex-column'}>
                 <Particles
                     className={"bg-transparent position-absolute z-1"}
-                    particleColors={['#e6e6cf', '#06072f', '#f6f6f6']}
+                    particleColors={['#1b0066', '#33138a', '#f6f6f6', '#1a015e']}
                     particleCount={400}
                     particleSpread={20}
                     speed={0.1}
-                    particleBaseSize={150}
+                    particleBaseSize={200}
                     moveParticlesOnHover={false}
                     alphaParticles={false}
                     disableRotation={true}

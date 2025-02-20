@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
-import getEvents from "../lib/db-eventi";
+import { useEffect, useState } from "react"
+import getEvents from "../lib/db-eventi"
 import './EventsList.module.css'
-import EventCard from "./EventCard";
-import { Carousel } from "@kkx64/react-simple-carousel";
+import EventCard from "./EventCard"
 
 /**
  * UI Component to display events as list of cards

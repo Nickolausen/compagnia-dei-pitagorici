@@ -1,0 +1,19 @@
+.main_section {
+    min-height: fit-content !important;
+    height: fit-content !important;
+}
+
+.pythagora {
+    margin-bottom: -20px;
+    z-index: -1;
+}
+
+.article {
+    min-height: 30rem !important;
+} 
+
+@media screen and (max-width: 768px) {
+    .pythagora {
+        min-width: 100%;
+    }
+}

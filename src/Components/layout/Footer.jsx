@@ -3,7 +3,7 @@ import HomeLink from '../HomeLink'
 
 function Footer(props) 
 {
-    return <footer className={styles.cst_footer + " " + props.classNames + " container-fluid p-5 mt-5"}>
+    return <footer className={styles.cst_footer + " " + props.classNames + " container-fluid p-5"}>
         <div className="row">
             <div className="col-12 col-lg-4 d-flex flex-column justify-content-center align-items-center">
                 <HomeLink></HomeLink>
