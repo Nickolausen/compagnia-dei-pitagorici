@@ -1,9 +1,9 @@
-import EventDetails from './pages/EventDetails'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import NotFound from './pages/NotFound'
 import HomePage from './pages/HomePage'
+import NotFound from './pages/NotFound'
+import EventDetails from './pages/EventDetails'
 
-function App() {    
+function App() {
   return (
     <Router basename={import.meta.env.BASE_URL}>
         <Routes>

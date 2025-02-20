@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import styles from './EventDetails.module.css'
 import "react-photo-album/rows.css";
+
 import HomeLink from '../components/HomeLink';
 import HorizontalRule from '../components/HorizontalRule';
 import LoadingSpinner from '../components/LoadingSpinner';
