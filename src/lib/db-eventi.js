@@ -96,7 +96,7 @@ function getEvents()
             event_url: "",
             description: "Incursione alla conviviale del Lions Club Rubicone",
             date: "24 Gennaio 2025",
-            location: "Hotel Savini @ Bellaria - Igea Marina (RN)",
+            location: "Hotel Savini @ Bellaria (RN)",
             thumbnail_src: "",
             volantino_src: "",
             yt_id: "",

@@ -16,7 +16,7 @@ function EventCard(props) {
                 <div className="card text-bg-dark">
                     <img src={props.thumbnail} className="card-img" alt="..." />
                     <div className="card-img-overlay d-flex flex-column align-items-center justify-content-end w-100">
-                        <div className='bg-dark bg-opacity-75 py-3 p-2 w-100 rounded'>
+                        <div className='bg-dark bg-opacity-50 py-3 p-2 w-100 rounded'>
                             <h5 className={`${styles.custom_title} card-title`}>{props.title}</h5>
                             <p className={`${styles.custom_description} card-text text-white`}>
                                 {props.description} - <span className="animated_link"> Clicca per vedere di più</span>
