@@ -42,7 +42,7 @@ export default function EventsList() {
         <section id="rassegne" className='container-fluid d-flex flex-column pt-sm-5'>
             <h2 className="fs-1 pb-3 pt-5">I nostri eventi</h2>
             <div className="row gy-5">
-                {cards}
+                { cards }
             </div>
         </section>
     )

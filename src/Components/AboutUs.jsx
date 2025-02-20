@@ -22,7 +22,7 @@ function AboutUs() {
     return (
         <section id="chi-siamo" className='container d-flex align-items-stretch py-5'>
             <div className="row">
-                <div className="col-12 col-xl-5">
+                <div className="col-12 col-xl-6">
                 <img className={styles.icon + " w-25 pt-3 exclude"} src={import.meta.env.BASE_URL + "imgs\\white_LOGO_PASCAL.png"}></img>
                 <h2 className='text-center text-xl-start display-6 pb-3 pt-4'>Una "congregazione" <br /><span className='title-like display-3'>Made in Pascal</span></h2>
                 <h3></h3>
@@ -45,10 +45,11 @@ function AboutUs() {
                         </p>
                     </article>
                 </div>
-                <div className="col-12 col-xl-7 px-xl-5 d-flex align-items-center">
+                <div className="col-12 col-xl-6 px-xl-5 d-flex align-items-center">
                     <div className="container-fluid">
                         <div className="row g-3">
                             { photos }
+                            <div>Dai un occhio alla nostra <a className='animated_link' href={import.meta.env.BASE_URL.concat('COMPAGNIA DEI PITAGORICI - Brochure Telematica.pdf')}>brochure</a>!</div>
                         </div>
                     </div>
                 </div>
