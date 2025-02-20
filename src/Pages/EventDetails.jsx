@@ -1,30 +1,23 @@
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+
 import styles from './EventDetails.module.css'
 import "react-photo-album/rows.css";
-import { useState, useEffect } from 'react';
-import getEvents from '../lib/db-eventi';
-import { useParams } from 'react-router-dom';
 import HomeLink from '../components/HomeLink';
 import HorizontalRule from '../components/HorizontalRule';
 import LoadingSpinner from '../components/LoadingSpinner';
 import DelayedGallery from '../components/DelayedGallery';
-import config from '../config.json'
-import NotFound from './NotFound';
-import Articolo from '../components/Articolo';
 import DefaultLayout from '../components/layout/DefaultLayout';
+import NotFound from './NotFound';
 
-const getMeta = (url, cb) => {
-    const img = new Image();
-    img.onload = () => cb(null, img);
-    img.onerror = (err) => cb(err);
-    img.src = url;
-}
+import { getImageMetadata } from '../lib/utils';
+import getEvents from '../lib/db-eventi';
+import config from '../config.json'
 
 function EventDetails() {
     const [ shouldRenderVideo, setShouldRenderVideo ] = useState(false)
-    const [ shouldRenderArticles, setShouldRenderArticles ] = useState(false)
     const [ rassegna, setRassegna ] = useState({})
     const [ photos, setPhotos ] = useState([])
-    const [ articoli, setArticoli ] = useState([])
     const [ volantinoLoaded, setVolantinoLoaded ] = useState(false)
     const { event_url } = useParams()
 
@@ -41,17 +34,7 @@ function EventDetails() {
             setRassegna(fetchedRassegna)
             setShouldRenderVideo(fetchedRassegna.yt_id.localeCompare("") !== 0)
 
-            let fetchedArticoli = []
-            fetchedRassegna.articoli.forEach(articolo => 
-                {
-                    fetchedArticoli.push(<div style={{minHeight: 250 + "px"}} className={'col-12 px-0 d-flex flex-column justify-content-center align-items-center'}>
-                        <Articolo key={articolo.articolo_url} { ...articolo}/>
-                    </div>)
-                })
-            setArticoli(fetchedArticoli)
-            setShouldRenderArticles(fetchedArticoli.length > 0)
-
-            getMeta(fetchedRassegna.volantino_src, (err, img) => {
+            getImageMetadata(fetchedRassegna.volantino_src, (_) => {
                 setVolantinoLoaded(true)
             })
 
@@ -69,7 +52,7 @@ function EventDetails() {
                 .then(data => 
                     {
                         let fetchedPhotos = [];
-                        getMeta(fetchedRassegna.volantino_src, (err, img) => {
+                        getImageMetadata(fetchedRassegna.volantino_src, (_, img) => {
                             fetchedPhotos.push({
                                 src: img.src,
                                 width: img.naturalWidth,
@@ -79,7 +62,7 @@ function EventDetails() {
 
                         for (const pic of data.photoset.photo) 
                         {
-                            getMeta(`https://live.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}_b.jpg`, (err, img) => {
+                            getImageMetadata(`https://live.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}_b.jpg`, (err, img) => {
                                 fetchedPhotos.push({
                                     src: img.src,
                                     width: img.naturalWidth,
