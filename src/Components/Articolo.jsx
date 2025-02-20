@@ -19,9 +19,9 @@ export default function Articolo({ journalIcon, title, url, journal, date })
                             <figure className="text-center mb-0">
                             <blockquote className="blockquote">
                                 <p className="pb-0">
-                                    <i className={styles.virgolette + " fa fa-quote-left fa-xs"} /> <span className="display-4 lead font-italic text-white">
+                                    <i className={styles.virgolette + " fa fa-quote-left fa-lg"} /> <span className="display-4 lead font-italic text-white">
                                         { title }
-                                    </span> <i className={styles.virgolette + " fa fa-quote-right fa-xs"} />
+                                    </span> <i className={styles.virgolette + " fa fa-quote-right fa-lg"} />
                                 </p>
                             </blockquote>
                                 <figcaption className="mb-0">
