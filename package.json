@@ -14,6 +14,7 @@
     "ogl": "^1.0.11",
     "react": "19.0.0",
     "react-dom": "19.0.0",
+    "react-error-boundary": "^5.0.0",
     "react-photo-album": "^3.0.2",
     "react-router-hash-link": "^2.4.3",
     "yet-another-react-lightbox": "^3.21.4"

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Suspense, useState, use } from "react";
 import LoadingSpinner from "./LoadingSpinner";
 
 import { RowsPhotoAlbum } from "react-photo-album";
@@ -16,7 +16,7 @@ import "yet-another-react-lightbox/plugins/counter.css";
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
 
-function DelayedGallery(props) {
+function DelayedGallery({ photosPromise, targetRowHeight }) {
     const [ shouldRender, setShouldRender ] = useState(false)
     const [ index, setIndex ] = useState(-1)
     const [ auto, setAuto ] = useState(false)
@@ -47,18 +47,11 @@ function DelayedGallery(props) {
     /* SLIDESHOW Plugin Params */
     const [autoplay, setAutoplay] = useState(false);
     const [delay, setDelay] = useState(3000);
-    
-    useEffect(() => 
-        {
-            const timeoutId = setTimeout(() => { setShouldRender(true) }, props.timeout)
-            return () => clearTimeout(timeoutId)
-        }, [])
-    
-    return <>
-        { shouldRender ?
-            <>
-                <RowsPhotoAlbum 
-                    key={10} photos={props.photos} 
+
+    const photos = use(photosPromise)
+    return (
+        <Suspense fallback={<LoadingSpinner className="text-center" loadingMessage="Caricando tutte le foto..."/>}>
+                <RowsPhotoAlbum photos={{ }} 
                     targetRowHeight={props.targetRowHeight}
                     onClick={({ index: current }) => setIndex(current)}/> 
 
@@ -95,10 +88,8 @@ function DelayedGallery(props) {
                         showToggle,
                         }}
                 />
-            </> :
-            <LoadingSpinner className="text-center" loadingMessage="Caricando tutte le foto..."></LoadingSpinner>
-        }
-    </>
+        </Suspense>
+    )
 }
 
 export default DelayedGallery
