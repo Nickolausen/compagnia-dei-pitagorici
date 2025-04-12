@@ -111,6 +111,35 @@ function getEvents()
                     date: "26/01/2025"
                 }
             ]
+        },
+        {
+            event_id: -1,
+            event_name: "Notte Pitagorica - Al Petrella",
+            event_url: "",
+            description: "L'eterno spettacolo della Matematica.",
+            date: "05 Aprile 2025",
+            location: "Teatro Petrella @ Longiano (FC)",
+            thumbnail_src: "",
+            volantino_src: "",
+            yt_id: "JFehYjFWBGI",
+            yt_thumbnail: "",
+            flickr_album_id: "72177720325032120",
+            articoli: [
+                {
+                    journalIcon: "",
+                    journal: "Corriere Cesenate",
+                    url: "https://www.corrierecesenate.it/la-notte-pitagorica-dellitt-pascal-al-teatro-petrella-di-longiano/",
+                    title: `La “Notte Pitagorica” dell’Itt Pascal al teatro Petrella di Longiano`,
+                    date: "03/04/2025"
+                },
+                {
+                    journalIcon: "",
+                    journal: "CesenaToday",
+                    url: "https://www.cesenatoday.it/eventi/la-notte-pitagorica-del-istituto-pascal-comandini-in-scena-al-petrella-5-aprile.html",
+                    title: `La Notte Pitagorica dell'istituto Pascal sbarca al Petrella di Longiano`,
+                    date: "03/04/2025"
+                }
+            ]
         }
 
     ]

@@ -10,7 +10,7 @@ function EventCard(props) {
     thumbnail.src = props.thumbnail
     thumbnail.onload = () => { setLoaded(true) }
 
-    return <div className="card w-100 border-0 text-center" style={{ width: "18rem" }}>
+    return <div className="card w-100 border-0 text-center bg-dark" style={{ width: "18rem" }}>
         { loaded ?
             <HashLink to={`${props.url}#rassegna`}>
                 <div className="card text-bg-dark">

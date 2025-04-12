@@ -108,7 +108,7 @@ function EventDetails() {
                 {
                     shouldRenderVideo && <>
                         <div className="col-12 col-xl-12 pt-5">
-                            <h3>Video Live</h3>
+                            <h3>Registrazione dell'evento</h3>
                             <div className="ratio ratio-16x9">
                                 <a href={'https://www.youtube.com/watch?v=' + rassegna.yt_id} target='_blank'>
                                     <img className='img-fluid rounded' src={rassegna.yt_thumbnail}></img>
